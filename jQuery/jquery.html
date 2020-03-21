@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+    <div class="content">
+        <div class="box">
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="ima/oil-1.jpg" height="400" width="400" />
+                    <h3>Название товара</h3>
+                </div>
+                <p class="price">452 US</p>
+                <a class="btn">В конзину</a>
+            </div>
+        </div>
+    </div>
+    <button id="next">next</button>
+    <button id="prev">prev</button>
+    <script>
+        var sliderWrap = $('.box'),
+            sliderWidth = sliderWrap.outerWidth(),
+            toShow = 4,
+            itemWidth = sliderWidth / 4 ,
+            sliderItems = sliderWrap.children(),
+            countSlide = sliderItems.length,
+            itemWrapperWidth = itemWidth * countSlide,
+            sliderItemWrap = $('<div class="scarousel_item_wrapper"></div>').width(itemWrapperWidth),
+            arrowNext = $('<a class="arrow next" href="#"></a>'),
+            arrowPrev = $('<a class="arrow prev" href="#"></a>'),
+            toSlide = 1,
+            delay = 500,
+            currentSlide = 0,
+            arrows;
+
+
+        sliderItems.addClass('item-scarousel').width(itemWidth);
+        $.each(sliderItems, function (index, item) {
+            $(item).attr('data-item', index);
+        })
+
+        sliderItems.wrapAll(sliderItemWrap);
+        sliderItemWrap = sliderItems.parent();
+        sliderItems.parent().wrap('<div class="scarousel_wrapper" style="width: ' + sliderWidth + '"></div>');
+
+        sliderItems.closest('.scarousel_wrapper').append(arrowNext, arrowPrev);
+        arrows = sliderWrap.find('.arrow');
+
+        $.each(arrows, function (i, item) {
+            item = $(item);
+            var prop = item.hasClass('next') ? 'next' : 'prev';
+            item.attr('data-go-to', prop);
+            item.on('click',goSlider);
+        })
+
+        function goSlider() {
+            // console.log(this.dataset.goTo)
+            setCurrentSlide($(this).data('goTo') === 'next');
+            setArrow();
+            go();
+            return false;
+        }
+
+        function setCurrentSlide(direction) {
+            // console.log(direction);
+            if (direction){
+                currentSlide = (currentSlide != countSlide - toShow) ?
+                    ((currentSlide + toSlide) < (countSlide -toShow))?
+                    currentSlide + toSlide:
+                    countSlide - toShow:
+                    countSlide - toShow;
+            } else {
+                currentSlide = (currentSlide != 0) ? ((currentSlide - toSlide) > 0) ? currentSlide - toSlide : 0 : 0;
+            }
+            console.log(currentSlide);
+        }
+        
+        function go() {
+            sliderItemWrap.animate({'marginLeft': - (currentSlide * itemWidth)  + 'px'}, delay, function () {
+            })
+        }
+        
+        function setArrow() {
+            if(currentSlide == countSlide -toShow){
+                arrows.filter('.next').addClass('disable');
+            } else if(currentSlide == 0){
+                arrows.filter('.prev').addClass('disable');
+            } else{
+                arrows.removeClass('disable');
+            }
+        }
+
+    </script>
+</body>
+</html>

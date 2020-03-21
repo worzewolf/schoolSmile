@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tooltip</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="style.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <br>
+    <br>
+    <br>
+    <p>lorem ipsum dolor sit amen<a href="#" class="tooltip tooltip-js" data-tooltip="text for tooltip 1 lorem ipsum"></a>lorem lorem lorem lorem lorem, lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem, lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem, lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem, lorem ipsum dolor sit amen. lorem ipsum dolor sit amen.</p>
+    <br>
+    <p>lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor <a href="#" class="tooltip tooltip-js" data-tooltip="text for tooltip 2 lorem ipsum"></a>sit amen. lorem ipsum dolor sit amen.</p><br>
+    <p>lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit <a href="#" class="tooltip tooltip-js" data-tooltip="text for tooltip 3 lorem ipsum"></a>amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen.</p><br>
+    <p>lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum dolor sit amen. lorem ipsum <a href="#" class="tooltip tooltip-js" data-tooltip="text for tooltip 4   lorem ipsum"></a>dolor sit amen.</p><br>
+
+</div>
+<script>
+    var t = new Tooltip({
+        beforeTooltip:function (elem) {
+            console.log(elem);
+        }
+    });
+</script>
+</body>
+</html>

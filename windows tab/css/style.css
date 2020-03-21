@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    background: url("../img/1.jpg") no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    background-color: blanchedalmond;
+    width: 100%;
+    border-top: azure 1px solid;
+}
+.windows{
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+.windows img{
+    width: inherit;
+    height: inherit;
+    float: left;
+    color: white;
+    display: inline-block;
+}
+#windows{
+    display: none;
+}
+.menubar{
+    display: none;
+}
+#windows:checked ~ .menu{
+    display: block;
+    background: azure;
+    height: 450px;
+    width: 300px;
+    position: absolute;
+    bottom: 50px;
+    border: 3px solid sandybrown;
+}
+#windows:checked ~.menu .menubar {
+    display: block;
+}
+.menubar li{
+    padding: 15px;
+    margin: 1px;
+    display: block;
+    text-decoration: none;
+}
+.menubar li:hover{
+    background: aliceblue;
+    outline: 1px solid black;
+}
+.menubar .explorer:hover::after{
+    content: "▷";
+    float: right;
+}
+.menubar1{
+    display: none;
+}
+.explorer:hover .menubar1{
+    margin-left: 280px;
+    position: absolute;
+    bottom: -3px;
+    display: block;
+    background: azure;
+    width: 300px;
+    border: 3px solid sandybrown;
+}
+.menubar2{
+    display: none;
+ }
+.mbar:hover>.menubar2{
+    margin-left: 285px;
+    position: absolute;
+    top: -3px;
+    display: block;
+    background: azure;
+    width: 300px;
+    border: 3px solid sandybrown;
+}
+.menubar1 .mbar2:hover>.menubar2{
+    display: block;
+}
+.menu>.menubar>.explorer>.mbar>.menubar2>.lastli{
+    text-decoration: none;
+    display: block;
+}
+.click{
+    text-decoration: none;
+    color: black;
+}
+.lastli .click:focus{
+    display: inline-block;
+    background-color: chartreuse;
+}
+#search{
+    bottom: 0;
+    float: left;
+    position: absolute;
+    width: 250px;
+    margin: 0 0 0 50px;
+    background: white;
+    height: 40px;
+}
+body .cmd{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    display: inline-block;
+}
+.cmd img{
+    width: inherit;
+    height: inherit;
+}
+.command{
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    display: none;
+}
+#message1{
+    position: absolute;
+    display: none;
+}
+#message1 ~ .command{
+    display: none;
+}
+#message1:checked ~ .command{
+    display: block;
+    border-top: 20px solid gainsboro;
+}
+.command a:after{
+    content: "X";
+    width: 16px;
+    height: 16px;
+    background: red;
+    color: white;
+    position: absolute;
+    top: -18px;
+    right: 2px;
+    text-align: center;
+}
+#message{
+    resize: none;
+    background: black;
+    color: white;
+    font-size: 14px;
+}
+

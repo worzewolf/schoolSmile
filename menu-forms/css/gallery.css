@@ -1,0 +1,113 @@
+a{
+    text-decoration: none;
+}
+.wrapper{
+    width: 1000px;
+    display: block;
+    margin: 10px auto;
+    z-index: 11;
+}
+.wrapper::after{
+    clear: both;
+}
+.wrapper img{
+    float: left;
+    display: block;
+}
+.wrapper a{
+    width: calc(33.33% - 15px);
+    display: block;
+    float: left;
+    margin-bottom: 15px;
+    position: relative;
+}
+.wrapper img{
+    width: 100%;
+}
+.wrapper a:not(:nth-child(3n)){
+    margin-right: 15px;
+}
+.wrapper a:hover::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    opacity: 0.5;
+    overflow: hidden;
+}
+.wrapper a::after{
+    content: "";
+    background-image: url("../../main/ima/eye.svg");
+    background-position: center;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .5s ease-out;
+    opacity: 0;
+}
+.wrapper a:hover::after{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.modal-wrapper div{
+    max-width: 100%;
+    transform: translate(-50%, -50%) scale(0);
+    visibility: hidden;
+}
+.modal-wrapper img {
+    display: block;
+    width: 500px;
+}
+.popup{
+    width: 500px;
+    position: absolute;
+}
+.popup:target {
+    transform: translate(-50%, -50%) scale(1);
+    display: block;
+    left: 50%;
+    top: 50%;
+    transition: all .3s ease;
+    visibility: visible;
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.7);
+}
+.popup .close{
+    display: block;
+    top: 0;
+    right: 0;
+    background: white;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}
+.popup a:hover{
+    color: red;
+}
+.iback,
+.iforward{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    color: black;
+    background-color: white;
+    font-size: 30px;
+    opacity: .5;
+}
+.iforward{
+    right: 0;
+}

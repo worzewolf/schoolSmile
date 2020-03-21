@@ -1,0 +1,334 @@
+
+a.link{
+  @link-color:white;
+  color: @link-color;
+}
+a:hover{
+  color: @link-color-hover;
+}
+widget{
+  color: @blue;
+  background-color: @link-color;
+}
+/*===================================================================*/
+@my-selector: banner;
+.@{my-selector} {
+  margin: 0 auto;
+}
+/*===================================================================*/
+@images: "../img";
+body{
+  color: blue;
+  background: url("@{images}/white-sand.png");
+}
+/*===================================================================*/
+@property:color;
+.widget{
+    @{property}:@blue;
+  background-@{property}: @link-color;
+}
+/*===================================================================*/
+@primary: green;
+@secondary: blue;
+.section{
+  @color:primary;
+  .element{
+    color: @primary;
+    .item{
+      margin: 0;
+    }
+  }
+}
+/*===================================================================*/
+.lazy-eval{
+  width:@var1;
+  @a:9%
+}
+@var1:@a;
+@a:100%;
+/*===================================================================*/
+@var2:0;
+.class{
+  @var2:1;
+  .brass{
+    @var2:2;
+    three:@var2; //3
+    @var2:3;
+  }
+  one:@var2;
+}
+/*=========================ampersant(звернення до батьківського елемента)================*/
+a{
+  color: blue;
+  &:hover{
+    color: green;
+  }
+  &::after{
+    content: '';
+    display: block;
+  }
+}
+/*===================================================================*/
+.button{
+  background-color: blue;
+  &-ok{
+    background-image: url("ok.png");
+    &-first{
+      margin: 0 auto;
+  }
+  }
+  &-cancel{
+    background-image: url("cancel.png");
+  }
+  &-custom{
+    background-image: url("custom.png");
+  }
+}
+/*===================================================================*/
+.link{
+  & + & {
+    color: red;
+  }
+  & &{
+    color: green;
+  }
+  &&{
+    color: blue;
+  }
+  &, &is{
+    color: cyan;
+  }
+}
+/*=================================================================*/
+.grand {
+  .parent {
+    & > &{
+      color: red;
+    }
+    & + &{
+      color: red;
+    }
+    & & {
+      color: dodgerblue;
+    }
+    && {
+      color: aliceblue;
+    }
+    &, &-ish{
+      color: cyan;
+    }
+  }
+}
+/*===========================ИЗМЕНЕНИЕ ПОРЯДКА ВЫБОРА===============*/
+.header{
+  .menu{
+    border-radius: 5px;
+    .no-border-radius & {
+      border-radius: 0;
+    }
+  }
+}
+/*===================Комбинаторный взрыв============================*/
+p, a, ul, li{
+  border-top: 2px dot-dash black;
+  & + &{
+    border-top: 0;
+  }
+}
+/*===================*/
+nav ul {
+  &:extend(.inline);
+  background: blue;
+}
+.inline{
+  color: red;
+}
+/*=========mixin==========*/
+.a, #b{
+   color: red;
+ }
+ .mixin-class {
+   .a()
+ }
+ .mixin-id{
+   color: red;
+ }
+/*=========не виводить mixin==========*/
+.my-mixin{
+  color: black;
+}
+.my-other-mixin(){ // () - не виводять, не підмішує зміну в класс, щоб запрацювало треба стирати скобки
+  background: white;
+}
+.class{
+  .my-mixin();
+  .my-other-mixin();
+}
+/*===================*/
+.my-hover-mixin{
+  &:hover{
+    border: 1px solid red;
+  }
+}
+button{
+  .my-hover-mixin();
+}
+.mixin(){
+  box-shadow+: inset 0 0 10px #555;
+}
+.myclass{
+  .mixin();
+  box-shadow+: 0 0 20px black;
+}
+/*=========свойства через пробел==========*/
+.mixindd(){
+  transform+_: scale(2);
+}
+.myclass{
+  .mixindd();
+  transform+_: rotate(15deg);
+}
+/*===================*/
+.foo (@bg: black, @color: white){
+  background: @bg;
+  color:@color;
+}
+.unimportant{
+  .foo();
+}
+.important{
+  .foo() !important;
+}
+/*=========одинаковые имена==========*/
+.mixinw(@color){
+  color-1:@color;
+}
+.mixinw(@color;@padding:2){
+  color-2:@color;
+  padding-2:@padding;
+}
+.mixinw(@color;@padding:2;@margin:2){
+  color-3:@color;
+  padding-3:@padding;
+  margin: @margin @margin @margin @margin;
+}
+.some .selector div{
+  .mixinw(black);
+}
+/*=========именованые параметры==========*/
+.mixins(@color:black; @margin: 10px; @padding:20px){
+  color: @color;
+  margin: @margin;
+  padding: @padding;
+}
+.class1{
+  .mixins(@margin:20px; @color: green);
+}
+.class2{
+  .mixins(@padding: 40px; blue;);
+}
+/*=========@ arguments Variable==========*/
+.box-shadow(@x:0;@y; @blur:1px; @color: wheat){//arguments срабатує для всіх данних вложених в скобкі
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+.big-block{
+  .box-shadow(2px;5px);
+}
+.mixina(dark,@color){
+  color: darken(@color,10%);
+}
+.mixina(light,@color){
+  color: lighten(@color,10%);
+}
+.mixina(@_;@color) { //в @_ буде відпрацьовувати в любому випадку
+  display: block;
+}
+@switch:dark;
+.class{
+  .mixina(light; #888);
+}
+/*===================*/
+.mixinq(@a){
+  @color:@a;
+}
+.mixinq(@a;@b){
+  color:@a;
+  background: @b;
+}
+.mixin-a{
+  .mixinq(#fff);
+}
+.mixin-b{
+  .mixinq(#ddd; #eee);
+}
+/*=========Использование миксинов в качестве функций==========*/
+.average(@x;@y){
+  @result: ((@x + @y) / 2);
+  @result1: ((@x - @y) * 2);
+}
+div{
+  padding: .average(16px, 50px)[@result];
+}
+div.a{
+  padding: .average(16px, 50px)[@result1];
+}
+div.b{
+  padding: .average(16px, 50px)[];
+}
+/*===================*/
+.library(){
+  .mixin(){
+    prop:foo;
+  }
+}
+#library(){
+  .mixin(){
+    prop:bar;
+  }
+}
+.box{
+  my-value: .library.mixin[prop];
+}
+/*==========рекурсивный миксин=========*/
+.generate-columns(12);
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .column-@{i}{
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+/*===================*/
+.mixinz(@a;@b:0) when (isnumber(@b)){
+  margin: @b;
+  color: @a;
+}
+.mixinz(@a;@b:black) when (iscolor(@b)) and (isnumber(@a)){
+  background-color: @b;
+  margin: @a;
+}
+.class{
+  .mixinz(#fff,5px);
+}
+.class1{
+  .mixinz(10px,#eee);
+}
+/*===================*/
+@sizes: {
+  mobile:320px;
+  tablet:768px;
+  desktop:1024px
+}
+.navbar{
+  display: block;
+  .main{
+    background-color: #49c459;
+  }
+  @media (min-width: @sizes[mobile]){
+    display: inline-block;
+    .main {
+      background-color: #a2a2a2;
+    }
+  }
+}

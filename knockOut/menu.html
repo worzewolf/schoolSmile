@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/knockout-3.5.1.js"></script>
+    <script src="js/menu.js"></script>
+    <style>
+        body{
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+        table{
+            margin: 20px auto;
+        }
+        th,
+        td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .wrapper{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+<input data-bind="value:price">
+<button data-bind="click:addSum">add</button>
+<div data-bind="text:sum"></div>
+
+<button id="addCource" data-bind="click: addCource">Claim dish</button>
+<span data-bind="total">Total: </span>
+<div class="wrapper">
+    <table>
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: courseList">
+        <tr>
+            <td data-bind="text: 'Table ' + ($index()+1)"></td>
+            <td data-bind="text: title"></td>
+            <td class="money" id="money" data-bind="text: price"></td>
+            <td data-bind="click: $root.removeCourse">
+                <button>Disclaim</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Recovery</th>
+            <th>remove Recovery</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: preRemoveCourse">
+        <tr>
+            <td data-bind="text: 'Table ' + $index()"></td>
+            <td data-bind="text: title"></td>
+            <td data-bind="text: price"></td>
+            <td data-bind="click: $root.recoveryCourse">
+                <button>Get back</button>
+            </td>
+            <td data-bind="click: $root.removeRecoveryCourse">
+                <button>Remove</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function Prise() {
+        this.price = ko.observable();
+        this.sum = ko.observable(0);
+        this.addSum = function () {
+            console.log(this);
+            this.sum(+(this.sum()) + +(this.price()));
+            console.log(this.sum);
+        }
+    }
+    ko.applyBindings(new Prise());
+    // function Course(title, price) {
+    //     this.title = ko.observable(title);
+    //     this.price = ko.observable(price);
+    // }
+    // function Customer() {
+    //     this.courseList = ko.observableArray([
+    //         new Course('Croissane', 1.20),
+    //         new Course('Coffee', 1.5),
+    //         new Course('Milk', 0.25),
+    //     ]);
+    //
+    //     this.removeCourse = function (course) {
+    //         this.courseList.remove(course);
+    //         this.preRemoveCourse.push(course);
+    //     }.bind(this);
+    //
+    //     this.recoveryCourse = function (course) {
+    //         this.preRemoveCourse.remove(course);
+    //         this.courseList.push(course);
+    //     }.bind(this);
+    //
+    //     this.removeRecoveryCourse = function (course) {
+    //         this.preRemoveCourse.remove(course);
+    //     }.bind(this);
+    //
+    //     this.preRemoveCourse = ko.observableArray([]);
+    //
+    //     this.addCource = function () {
+    //         var newCource = getCourse();
+    //         ('title' in newCource)
+    //         && this.courseList.push(new Course(newCource.title, newCource.price))
+    //     };
+    // }
+    // ko.applyBindings(new Customer());
+</script>
+</body>
+</html>

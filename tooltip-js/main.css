@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 14px;
+    line-height: 1.2;
+    font-family: sans-serif;
+}
+.wrapper{
+    max-width:1220px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.tooltip{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: grey;
+}
+.tooltip-box{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    display: none;
+    max-width: 250px;
+}
+.tooltip-box.active{
+    display: block;
+}

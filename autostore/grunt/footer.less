@@ -1,0 +1,185 @@
+footer {
+    margin-top: 56px;
+    .top-footer {
+        background-color: @footerbg;
+        color: @base-color;
+        line-height: 23px;
+        padding: 73px 0 65px;
+        ul {
+            display: flex;
+            flex-flow: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .contact {
+                width: 34%;
+            }
+            .locate {
+                width: 25%;
+                padding-left: 3px;
+            }
+            .custom-service {
+                width: 26%;
+                padding-left: 10px;
+            }
+            .info {
+                width: 15%;
+                padding-left: 5px;
+            }
+            li:first-child ul li {
+                width: 100%;
+                padding: 13px 0 15px 37px;
+                letter-spacing: .03px;
+            }
+            li>ul {
+                display: flex;
+                flex-flow: column;
+                font-size: 14px;
+                padding-right: 5px;
+                li {
+                    padding-top: 12px;
+                    line-height: 23px;
+                    margin-left: -2px;
+                }
+            }
+        }
+        h3 {
+            color: @base-color;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding-bottom: 11px;
+            font-weight: 500;
+        }
+        a {
+            text-transform: none;
+            color: @base-color;
+            position: relative;
+            letter-spacing: 0.08px;
+            &:hover {
+                color: @button;
+                padding-left: 10px;
+                &::before {
+                    content: '';
+                    width: 5px;
+                    height: 1px;
+                    background-color: @button;
+                    position: absolute;
+                    left: 0;
+                    top: 7px;
+                }
+            }
+        }
+        .location {
+            letter-spacing: 0.2px;
+        }
+        .phone,
+        .mail {
+            letter-spacing: 0.09px;
+        }
+        .schedule {
+            letter-spacing: 0.06px;
+        }
+        .location,
+        .phone,
+        .mail,
+        .schedule {
+            position: relative;
+            &::before {
+                color: @button;
+                font-family: Font Awesome\ 5 Free;
+                font-weight: 900;
+                position: absolute;
+                left: -5px;
+                top: 6px;
+                font-size: 15px;
+                z-index: 2;
+                cursor: pointer;
+                width: 35px;
+                height: 35px;
+                content: "";
+            }
+            &:first-child::before {
+                left: -9px;
+                top: 19px;
+            }
+        }
+        .location::before {
+            background-image: url("@{path-img}footer/icon-image1.png");
+        }
+        .phone::before {
+            background-image: url("@{path-img}footer/icon-image1-1.png");
+        }
+        .mail::before {
+            background-image: url("@{path-img}footer/icon-image1-2.png");
+        }
+        .schedule::before {
+            background-image: url("@{path-img}footer/icon-image1-3.png");
+        }
+    }
+    .bottom-footer {
+        background-color: @footerbgbottom;
+        padding: 25px 0 15px;
+        color: @txt2-color;
+        font-size: 13px;
+        .bottom-wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+            align-items: center;
+            ul{
+                li{
+                    margin: 0 10px 10px 0;
+                    float: left;
+                    &:first-of-type{
+                        background: url("../ima/footer/payment-footer.png") 0 0 no-repeat;
+                        padding: 10px 25px;
+                    }
+                    &:nth-of-type(2){
+                        background: url("../ima/footer/payment-footer.png") -63px 0 no-repeat;
+                        padding: 10px 25px;
+                    }
+                    &:nth-of-type(3){
+                        background: url("../ima/footer/payment-footer.png") -126px 0 no-repeat;
+                        padding: 10px 25px;
+                    }
+                    &:nth-of-type(4){
+                        background: url("../ima/footer/payment-footer.png") -189px 0 no-repeat;
+                        padding: 10px 25px;
+                    }
+                    &:nth-of-type(5){
+                        background: url("../ima/footer/payment-footer.png") -254px 0 no-repeat;
+                        padding: 10px 25px;
+                    }
+                    &:last-of-type{
+                        background: url("../ima/footer/payment-footer.png") -317px 0 no-repeat;
+                        padding: 10px 25px;
+                    }
+                }
+            }
+            span {
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    footer .top-footer ul{
+        .contact,
+        .locate,
+        .custom-service,
+        .info{
+            width: 50%;
+            padding-bottom: 50px;
+            padding-left: 0;
+        }
+    }
+}
+@media only screen and (max-width: 500px) {
+    footer .top-footer ul {
+        .contact,
+        .locate,
+        .custom-service,
+        .info {
+            width: 100%;
+        }
+    }
+}

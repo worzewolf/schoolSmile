@@ -1,0 +1,176 @@
+.header {
+    background: url('../../img/header.png') no-repeat center center;
+    height: 100vh;
+    background-size: cover;
+    background-color: @top-header-color;
+    &_wrapper{
+        display: flex;
+        margin: 0 auto;
+        max-width: 1630px;
+        padding: 0 15px;
+        justify-content: flex-end;
+        span{
+            color: @text1-color;
+            cursor: pointer;
+        }
+        hr{
+            width: 100%;
+            background-color: @text2-color;
+        }
+    }
+    &_nav{
+        width: 100%;
+        background-color: @bg-color;
+        ul{
+            display: flex;
+            text-transform: uppercase;
+            color: @text4-color;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.75px;
+            padding: 1.5% 0 1% 13%;
+            & > li{
+                padding-left: 3%;
+            }
+        }
+        a{
+            color: @text4-color;
+            &:hover{
+                color: @text1-color;
+            }
+        }
+    }
+}
+.top_header{
+    background-color: @top-header-color;
+    width: 100%;
+    .header_wrapper a:first-child span::before{
+        content: "\f406";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        margin-right: 7px;
+    }
+    .header_wrapper a:nth-child(2) span::before{
+        content: "\f217";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        margin-right: 7px;
+    }
+    .header_wrapper span:last-child::before{
+        content: "\f058";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        margin-right: 7px;
+    }
+    a{
+        float: right;
+        display: flex;
+        color: @text1-color;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.7px;
+        padding: 18px 20px 18px 20px;
+        &:hover{
+            background-color: @headlight-hovered-color;
+        }
+    }
+    .lookfor{
+        color: @button-txt-color;
+        height: 24px;
+        font-size: 25px;
+        font-weight: 400;
+        float: right;
+        padding: 10px 120px 0 20px;
+        &::before{
+            content: "";
+            width: 3px;
+            height: 30px;
+            background-color: @text2-color;
+            position: absolute;
+            margin: 0 0 0 -20px;
+        }
+    }
+    #lookfor{
+        display: none;
+    }
+}
+.middle_header{
+    padding-top: 1px;
+    width: 100%;
+    background-color: #212121;
+    hr{
+        margin-bottom: 15px;
+        width: 75%;
+    }
+}
+.md_hd{
+    &_txt{
+        h2{
+            color: @text1-color;
+            font-size: 55px;
+            font-weight: 600;
+            span{
+                color: @text4-color;
+                font-size: 55px;
+                font-weight: 600;
+            }
+        }
+        h5{
+            letter-spacing: 8.4px;
+            text-transform: uppercase;
+        }
+    }
+    &_contact{
+        padding-left: 19%;
+        text-align: right;
+        h3{
+            padding-bottom: 26px;
+            &::before{
+                content: url("../../img/phone.png");
+                padding-right: 10px;
+            }
+        }
+        p{
+            padding-bottom: 24px;
+            text-transform: uppercase;
+        }
+    }
+    &_btns{
+        right: 0;
+        color: @button-txt-color;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.75px;
+        padding: 0 5%;
+        a{
+            display: inline-block;
+            align-content: center;
+            color: @button-txt-color;
+            padding: 0 20px 0 20px;
+            &::before{
+                content: "";
+                width: 2px;
+                height: 62px;
+                background-color: @text2-color;
+                position: absolute;
+                margin: 0 0 0 -25px;
+            }
+            &:hover{
+                color: @text1-color;
+                background-color: @headlight-hovered-color;
+            }
+            & > img{
+                padding-top: 10%;
+                padding-bottom: 13%;
+                padding-left: calc(50% - 16px);
+                height: 43px;
+            }
+        }
+    }
+}
+.bottom_header{
+    width: 100%;
+    a{
+        color: @button-txt-color;
+    }
+}

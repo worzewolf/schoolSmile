@@ -1,0 +1,56 @@
+.content{
+    max-width: 1170px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.scarousel-active{
+    position: relative;
+}
+.scarousel_wrapper{
+    overflow: hidden;
+    position: relative;
+}
+.scarousel_item_wrapper {
+    display: flex;
+}
+.scarousel_item_wrapper > div{
+    padding: 10px;
+}
+.arrow {
+    display: block;
+    padding: 15px;
+}
+.item img{
+    width: 100%;
+    height: auto;
+}
+.arrow{
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .5);
+}
+.arrow.disable {
+    opacity: 0.25;
+}
+.arrow.disable:hover{
+    box-shadow: none;
+}
+.arrow:hover {
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .25);
+}
+.arrow.next{
+    background-image: url("ima/arrow-2.svg");
+    left: 10px;
+}
+.arrow.prev{
+    background-image: url("ima/arrow-1.svg");
+    right:10px;
+}

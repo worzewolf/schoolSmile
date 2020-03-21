@@ -1,0 +1,114 @@
+body{
+    background-color: #8499c7;
+    font-family: sans-serif;
+}
+.product-list h1{
+    text-align: center;
+}
+.product-gallery{
+    margin: 0 auto;
+    width: 1570px;
+}
+.product-item{
+    border: 1px solid black;
+    background-color: darkgray;
+    box-shadow: 5px 5px 5px darkblue;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    float: left;
+    width: 370px;
+    height: 500px;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+}
+.product-item .gal{
+    width: 70%;
+    border: 5px solid black;
+    margin: 2% 15%;
+}
+.product-item .item-title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    height: 45px;
+}
+.product-item p:nth-last-child(2n){
+    margin: 0;
+    width: 100%;
+    font-size: 25px;
+}
+.product-item a{
+    text-decoration: none;
+    color: black;
+}
+.product-item a:hover{
+    color: red;
+}
+.price{
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+}
+.price p{
+    margin: 0;
+}
+.oldprice{
+    text-decoration: line-through;
+    color: red;
+}
+.discount{
+    background-color: gold;
+    color: blue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    text-align: center;
+    border: 1px solid red;
+    right: 5%;
+    top: -100%;
+}
+.discount::before{
+    content: attr(data-parent);
+    position: absolute;
+    right: 100%;
+    padding-right: 10px;
+    vertical-align: middle;
+    top: 10%;
+}
+.discount p{
+    margin-top: 15px;
+}
+.finalprice{
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+}
+.order-now{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+}
+#order{
+    background-color: green;
+    color: white;
+    width: 100px;
+    height: 35px;
+    font-style: italic;
+    font-weight: bold;
+}
+#order:hover{
+    background-color: lawngreen;
+}
+.stars{
+    font-size: 30px;
+    position: absolute;
+    bottom: 25%;
+    left: calc(50% - 82px);
+    letter-spacing: 10px;
+}
+.product-action{
+    font-style: italic;
+    text-decoration: underline;
+}

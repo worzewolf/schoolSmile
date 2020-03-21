@@ -1,0 +1,212 @@
+.wrapper{
+  display: block;
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 0 15px;
+}
+.main .block_content {
+  display: flex;
+  & .block_bg{
+    width: 66.66%;
+    background: url("../../ima/main_1.png") no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:nth-child(2){
+      background: url("../../ima/main_3.png") no-repeat;
+      background-size: cover;
+    }
+  }
+  & .block_text_img {
+    width: 33.33%;
+    & .block_none {
+      & h3 {
+        color: @color-main-h3;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3.6px;
+        margin-bottom: 26px;
+      }
+      & p {
+        color: @color-main-p;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 30px;
+        text-align: justify;
+      }
+    }
+  }
+  & .block_text{
+    text-align: center;
+    padding: 70px 68px 64px;
+    & p {
+      margin-top: 26px;
+      color: @color-main-p;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 30px;
+      text-align: justify;
+    }
+    & hr {
+      border: none;
+      width: 50px;
+      height: 1px;
+      background-color: @bg-color-hr;
+      margin-top: 40px;
+    }
+    & h3 {
+      margin-top: 31px;
+      color: @color-main-h3;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3.6px;
+    }
+  }
+  & .block_img {
+    position: relative;
+    & img {
+      display: block;
+      width: 100%;
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: white;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  & .block_bg_img {
+    width: 33.33%;
+    perspective: 1000px;
+    & .anima {
+      width: 100%;
+      height: 100%;
+      display: block;
+      &:nth-child(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateY(180deg);
+        visibility: hidden;
+      }
+    }
+    &:first-child {
+      background: url("../../ima/main_5.png") no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & .rotate {
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: .6s;
+      background: #eeeeee;
+    }
+    &:hover {
+      & .rotate {
+        transform: rotateY(180deg);
+      }
+      & .amina {
+        &:nth-child(2) {
+          visibility: visible;
+        }
+        &:first-child {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+  & .block_text_img {
+    & .block_none {
+      text-align: center;
+      padding: 25px 68px 64px;
+      display: none;
+      & span {
+        font-style: italic;
+      }
+    }
+    & .block_img {
+      &:hover {
+        cursor: pointer;
+        &::before {
+          background: red;
+        }
+        & .block_none {
+          display: block;
+          animation-duration: 1s;
+          animation-fill-mode: both;
+          animation-name: Bottom_text;
+        }
+      }
+    }
+  }
+}
+
+@keyframes Bottom_text {
+  from {
+    transform: translate(0, 100%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper{
+    width: 100%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  .wrapper {
+    width: 100%;
+  }
+  .main .block_content{
+    & .block_bg, .block_text_img {
+      width: 50%;
+    }
+    &:nth-child(3){
+      & .block_text_img{
+        width: 33.33%;
+        & .block_text{
+          padding: 30px 40px 25px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+  }
+  .main .block_content {
+    flex-direction: column;
+    & .block_bg {
+      padding: 40px 0;
+      &:not(:first-child){
+        display: none;
+      }
+    }
+    & .block_bg, .block_text_img{
+      width: 100%;
+    }
+    &:nth-child(3){
+      & .block_text_img, .block_bg_img {
+        width: 100%;
+      }
+    }
+    & .block_bg_img:not(:last-child){
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,312 @@
+/*@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css?family=Pontano+Sans');*/
+@font-face {
+    font-family: 'Pontano Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pontano Sans'), local('PontanoSans-Regular'), url(https://fonts.gstatic.com/s/pontanosans/v7/qFdD35GdgYR8EzR6oBLDHa3axT8I.ttf) format('truetype');
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /*font-family: 'ProximaNovaRegular','Helvetica Neue',Helvetica,Arial,sans-serif;*/
+    font-family: monospace;
+    margin: 0 auto;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.wrapper{
+    max-width: 1380px;
+    margin: 0 auto;
+}
+.top-header{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.left-header{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.logo img {
+     /*padding: 6px 26px 0;*/
+    width: 197px;
+    padding: 13px 29px 0;
+}
+.action-menu{
+     margin-top: 19px;
+     font-family: 'ProximaNovaBold',sans-serif;
+     font-weight: bold;
+     color: #2b2e33;
+     font-size: 11px;
+     line-height: 42px;
+     float: right;
+}
+.action-menu li{
+     float: left;
+     text-transform: uppercase;
+     position: relative;
+}
+.mobile-action-menu{
+    display: inline-block;
+    height: 74px;
+    float: right;
+    display: none;
+ }
+li.mob{
+    width: 60px;
+    padding: 28px 0;
+    border-left: 1px solid grey;
+    text-align: center;
+    float: left;
+}
+/*.srch{*/
+/*     background: url(../ima/Loupe.png) no-repeat center center;*/
+/* }*/
+li.login{
+    padding-right: 27px;
+    /*padding-right: 39px;*/
+    /*letter-spacing: 0.5px;*/
+}
+ li.login::before{
+     background: url("../ima/main-spr.png") 68% 84% no-repeat;
+ }
+li.favourite{
+    /*padding-right: 30px;*/
+    letter-spacing: -.9px;
+}
+li.favourite:before {
+    background: url("../ima/main-spr.png") 60% 50% no-repeat;
+}
+ li.login::before,
+ li.favourite:before{
+     content: "";
+     width: 14px;
+     height: 18px;
+     position: absolute;
+     left: -13px;
+     bottom: 12px;
+ }
+ li.language1 {
+     padding: 0 5px 0 30px;
+ }
+li.language2 {
+     padding: 0 30px 0 5px;
+ }
+ li.language1 .fr{
+     background: url("../ima/flag.png") no-repeat top left;
+     width: 22px;
+     height: 14px;
+     display: inline-block;
+     vertical-align: middle;
+ }
+li.language2 .gb{
+     background: url("../ima/flag.png") no-repeat bottom right;
+     width: 22px;
+     height: 14px;
+     display: inline-block;
+    vertical-align: middle;
+ }
+ .cart{
+     background: url(../ima/cart.png) no-repeat 50% 48%;
+     background-color: #eb2645;
+     width: 105px;
+     height: 82px;
+     display: block;
+     float: right;
+     cursor: pointer;
+ }
+ .header{
+     position: relative;
+     height: 334px;
+ }
+ .header-logo{
+     background: url("../ima/logo.png");
+     height: 100%;
+     background-size: cover;
+     background-position: top center;
+     position: relative;
+ }
+ .header-logo::after{
+     content: '';
+     width: 100%;
+     height: 100%;
+     background-color: black;
+     opacity: 0.6;
+     position: absolute;
+ }
+ .header span{
+     position: absolute;
+     left: 50%;
+     top: 40%;
+     color: white;
+     font-size: 36px;
+     text-transform: uppercase;
+     font-family: sans-serif, veranda;
+     font-weight: 900;
+     transform: translate(-50%, -50%);
+ }
+.navigation{
+     position: absolute;
+     bottom: 0;
+     background-color: #182d47;
+     width: 100%;
+     display: flex;
+     flex-flow: row;
+     justify-content: space-between;
+ }
+.burger{
+    display: flex;
+    padding: 28px 0px 20px 13px;
+    flex-flow: column;
+    display: none;
+}
+.burger span:first-of-type{
+    width: 25px;
+    height: 2px;
+    background-color: black;
+}
+.burger span:nth-of-type(2){
+    width: 25px;
+    height: 2px;
+    margin:6px 0;
+    background-color: black;
+}
+.burger span:last-of-type{
+    width: 25px;
+    height: 2px;
+    /*margin:16px 0;*/
+    background-color: black;
+}
+ .header-nav{
+     padding: 5px 0 3px 50px;
+     font-size: 14px;
+ }
+ .header-nav li{
+     float: left;
+     min-height: 100%;
+     display: flex;
+ }
+ .header-nav li:hover{
+     background-color: white;
+     border-bottom: 3px solid red;
+     margin-bottom: -3px;
+ }
+.header-nav li:hover a{
+    color: black;
+}
+.header-nav li:not(:first-child){
+    border-left: 1px solid #4d5d71;
+}
+ .header-nav li>a{
+     color: white;
+     font-weight: bold;
+     text-align: center;
+     align-items: center;
+     display: flex;
+     text-transform: uppercase;
+     position: relative;
+     padding: 14px 26px;
+ }
+/*.header-nav li:first-of-type{*/
+/*    letter-spacing: 0.2px;*/
+/*}*/
+.header-nav li:nth-of-type(2),
+.header-nav li:nth-of-type(3){
+    /*letter-spacing: 0.9px;*/
+    letter-spacing: 1.5px;
+}
+/*.header-nav li:nth-of-type(3){*/
+/*    letter-spacing: 1.2px;*/
+/*}*/
+.header-nav li:nth-of-type(4){
+    letter-spacing: 1.8px;
+    /*letter-spacing: 1.3px;*/
+}
+.header-nav li:nth-of-type(5)>a{
+    padding: 14px 27px;
+}
+.header-nav li:nth-of-type(6){
+    letter-spacing: 0.5px;
+}
+.header-nav li:hover>a::after{
+    content: "";
+    background: url("../ima/triangle.png") no-repeat;
+    width: 10px;
+    height: 5px;
+    bottom: 10px;
+    left: calc(50% - 5px);
+    position: absolute;
+}
+.search-extended{
+    max-width: 310px;
+    width: 100%;
+    padding: 8px 11px;
+}
+ .search{
+     height: 100%;
+     position: relative;
+     background-color: white;
+ }
+ .searchbtn{
+     position: absolute;
+     background: url("../ima/Loupe.png") no-repeat 63% 47%;
+     border: 0;
+     left: 0;
+     height: 100%;
+     padding: 26px;
+
+ }
+ .searchpole{
+     padding: 19px 10px 18px;
+     position: absolute;
+     width: 80%;
+     right: 0;
+     border: 0;
+ }
+ @media only screen and (max-width: 1300px) {
+    .search-extended{
+        max-width: 270px;
+    }
+ }
+ @media only screen and (max-width: 1200px) {
+    .search-extended{
+        max-width: 60px;
+    }
+     .searchpole{
+         display: none;
+         top: 0;
+         left: -260px;
+         width: 250px;
+         float: right;
+     }
+     .searchbtn:hover + .searchpole{
+         display: block;
+     }
+     .header-nav li>a{
+         padding: 14.5px 23px;
+     }
+ }
+
+@media only screen and (max-width: 967px) {
+    .navigation{
+        display: none;
+    }
+    .burger{
+        display: flex;
+    }
+    .action-menu{
+        display: none;
+    }
+    .mobile-action-menu{
+        display: block;
+    }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lab-1</title>
+    <script src="js/knockout-3.5.1.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <p>First name: <span data-bind="text:firstName"></span></p>
+    <p>Last name: <span data-bind="text:lastName"></span></p>
+    <p>Full name: <span data-bind="text:fullName"></span></p>
+    <button id="setName" data-bind="click: setName">What is your name?</button>
+</div>
+    <script>
+        function Customer() {
+            this.firstName = ko.observable();
+            this.lastName = ko.observable();
+            this.fullName = ko.computed(function () {
+                return (this.firstName() && this.lastName()) ? this.firstName() +  " " + this.lastName() : '';
+            }, this);
+            this.setName = function () {
+                var answer = prompt('What is your name?');
+                console.log(answer.split(' '));
+                answer = answer.split(' ');
+                this.firstName(answer[0]);
+                this.lastName(answer[1]);
+            };
+        }
+        ko.applyBindings(new Customer());
+    </script>
+</body>
+</html>

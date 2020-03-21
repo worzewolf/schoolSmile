@@ -1,0 +1,43 @@
+@import "tipographi.css";
+.tab-wrapper{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 15px;
+}
+ul{
+    list-style-type: none;
+}
+.tab-wrapper .tab-main{
+    border: 2px solid black;
+}
+.tab-wrapper .tab-main > li label{
+    padding: 20px;
+    display: block;
+    cursor: pointer;
+}
+.tab-wrapper .tab-main > li > ul li{
+    padding: 5px 5px 5px 30px;
+    background-color: aqua;
+}
+.tab-wrapper .tab-main > li:not(:last-child) label,
+.tab-wrapper .tab-main > li > ul li,
+.tab-wrapper .tab-main > li:last-child input:checked + label{
+    border-bottom: 2px solid black;
+}
+.tab-wrapper .tab-main > li label:hover{
+    background-color: gray;
+    color: white;
+}
+.tab-wrapper .tab-main > li > ul,
+.tab-wrapper .tab-main > li input{
+    display: none;
+}
+.tab-wrapper .tab-main > li input:checked ~ ul{
+    display: block;
+}
+.tab-wrapper .tab-main > li:last-child input:checked ~ ul li:last-child{
+    border-bottom: none;
+}
+hr{
+    margin: 50px 0;
+}

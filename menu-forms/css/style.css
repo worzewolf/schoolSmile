@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.nav .drop{
+    display: block;
+    float: left;
+    width: 120px;
+    margin: 25px;
+    border: solid 2px black;
+}
+li{
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: inline-block;
+    width: 100%;
+}
+.drop>ul {
+    display: none;
+    border: 1px solid black;
+}
+.drop:hover>ul {
+    display: block;
+}
+.drop:hover+li p {
+    color: white;
+}
+.drop:first-child {
+    background-color: orchid;
+}
+.drop:nth-child(2) {
+    background-color: blueviolet;
+}
+.drop:last-child {
+    background-color: darkblue;
+}
+.one:hover li:nth-child(n) {
+    background-color: green;
+}
+.one:hover li:nth-child(2n) {
+    background-color: rgb(79, 43, 146);
+}
+.two:hover li:nth-child(n) {
+    background-color: orangered;
+}
+.two:hover li:nth-child(2n) {
+    background-color: rgb(95, 32, 45);
+}
+.three:hover li:nth-child(n) {
+    background-color: rgb(124, 42, 120);
+}
+.three:hover li:nth-child(2n) {
+    background-color: rgb(133, 172, 126);
+}
+.drop li a:hover{
+    background-color: black;
+    color: orange;
+}
+.drop ul li:nth-child(3n) a::before {
+    content: "★ "
+}
+.drop:first-child ul li:nth-child(-n+6) a::before {
+    content: "☢ "
+}
+.drop:last-child ul li:nth-child(n+2) a::before {
+    content: "☞ "
+}
+.drop:nth-child(n) a::after {
+    content: "▷";
+    float: right;
+}
+.drop:nth-child(n):hover a::after {
+    content: "▷";
+    transform: rotate(90deg);
+    float: right;
+}
+.drop li a:nth-child(n):hover::after {
+    content: "▷";
+    transform: rotate(180deg);
+}
+table{
+    margin-top: 50px;
+}
+th{
+    padding:15px;
+}
+input:invalid {
+    background-color: #ffdddd;
+    border:solid 1px red;
+}

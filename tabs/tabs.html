@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabs+bgimg</title>
+    <link rel="stylesheet" href="css/tabs.css">
+</head>
+<body>
+    <div class="radiotabs">
+        <div class="tradios">
+                <input type="radio" title="Panel 1" name="tradio" id="tab1" class="tradio" checked>
+                <input type="radio" title="Panel 2" name="tradio" id="tab2" class="tradio">          
+                <div class="trnav">
+                    <label for="tab1" id="tnavitem1" class="trnavitem">Sign in</label>
+                    <label for="tab2" id="tnavitem2" class="trnavitem">Log in</label>
+              </div>
+            <div class="tpanels"> 
+                <div id="tpanel1" class="trpanel">
+                    <form action="index.php" method="post">
+                        <label for="login">Login: </label><br>
+                        <input type="text" name="login" id="login" placeholder="worzewolf" required><br>
+                        <label for="password">Password:</label><br>
+                        <input type="password" value="password" id="password" required><br>
+                        <label for="passwordrep">Repeat password:</label><br>
+                        <input type="password" value="password" name="password" id="passwordrep" required><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" name="email" id="email" placeholder="ivan@example.com" required><br>
+                        <input type="submit" value="submit" name="submit">
+                    </form>
+                </div>      
+                <div id="tpanel2" class="trpanel">
+                    <form action="index.php" method="get">
+                        <label for="login2">Login: </label><br>
+                        <input type="text" name="login" id="login2" placeholder="worzewolf"><br>
+                        <label for="password2">Password: </label><br>
+                        <input type="password" value="password" name="password" id="password2"><br>
+                        <input type="submit" value="submit" name="submit">                
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="acordion">
+            <div class="tcbox">
+                <input type="checkbox" id="tcbox1">
+                <label for="tcbox1">Sign in</label>
+                <div class="section">
+                    <form action="index.php" method="post">
+                        <label for="login3">Login: </label>
+                        <input type="text" name="login" id="login3" placeholder="worzewolf" required>
+                        <label for="password3">Password:</label>
+                        <input type="password" value="password" id="password3" required>
+                        <label for="password4">Repeat password:</label>
+                        <input type="password" value="password" name="password" id="password4" required>
+                        <label for="email2">Email:</label>
+                        <input type="email" name="email" id="email2" placeholder="ivan@example.com" required>
+                        <input type="submit" value="submit" name="submit">
+                    </form>       
+                </div>
+            </div>
+            <div class="tcbox">
+                <input type="checkbox" id="tcbox2">
+                <label for="tcbox2">Log in</label>
+                <div class="section">
+                    <form action="index.php" method="post">
+                        <label for="login4">Login: </label>
+                        <input type="text" name="login" id="login4" placeholder="worzewolf" required>
+                        <br>
+                        <label for="password5">Password:</label>
+                        <input type="password" value="password" id="password5" required>
+                        <br>
+                        <input type="submit" value="submit" name="submit">
+                    </form>   
+                </div>
+            </div>
+        </div>
+    <div class="gallery"></div>
+</body>
+</html>

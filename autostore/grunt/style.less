@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+span{
+    text-transform: capitalize;
+}
+h1,h2{
+    color: @base2-color;
+}
+h3,h4,h5,h6{
+    color: @button;
+}
+select{
+    border-radius: 5px;
+    background-color: @response-color;
+    padding: 5px;
+}
+.wrapper {
+    display: block;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+input[type=checkbox]{
+    display: none;
+}input[type=button]{
+    display: none;
+}
+input[type=radio]{
+    display: none;
+}
+select, option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid @border-color;
+    background-color: @response-color;
+    position: relative;
+}
+label{
+    cursor: pointer;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: @base2-color;
+    &:hover{
+        color: @button;
+        cursor: pointer;
+    }
+}
+.row{
+    margin: 0 -15px;
+}
+.col1,
+.col2,
+.col3,
+.col4{
+    padding: 0 15px;
+}
+.col1{
+    width: 100%;
+}
+.col2{
+    width: 50%;
+}
+.col3{
+    width: 33.33%;
+}
+.col4{
+    width: 25%;
+}
+.like-btn::before {
+    content: '\f004';
+}
+.restart-cart::before {
+    content: '\f021';
+}
+.like-btn, .restart-cart {
+    position: relative;
+    padding: 13px 18px 13px;
+    background-color: @base2bg-color;
+    border-radius: 5px;
+    color: @base-color;
+    &:hover {
+        background-color: @button;
+    }
+    &::before {
+        color: @base-color;
+        font-family: Font Awesome\ 5 Free;
+        font-weight: 900;
+        position: absolute;
+        left: calc(50% - 7px);
+        top: calc(50% - 8px);
+        font-size: 15px;
+    }
+}

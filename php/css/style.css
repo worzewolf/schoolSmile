@@ -1,0 +1,103 @@
+@import "tipographi.css";
+.gall-wrapper{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.gall-wrapper::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.gall-wrapper > a{
+    display: block;
+    float: left;
+    width: calc(33.333% - 30px);
+    margin-bottom: 15px;
+    position: relative;
+}
+.gall-wrapper > a:not(:nth-child(3n)){
+    margin-right: 15px;
+}
+.gall-wrapper > a::after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.75);
+    content: '';
+    display: block;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+.gall-wrapper > a::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url("../ima/eye.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 1s ease;
+    z-index: 1;
+}
+.gall-wrapper > a:hover::after{
+    opacity: 1;
+}
+.gall-wrapper > a:hover::before{
+    transform: translate(-50%, -50%) scale(1);
+}
+.gall-wrapper > a img{
+    width: 100%;
+    display: block;
+}
+.modal-gall > div:not(.bg) {
+    width: 500px;
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border: 10px solid black;
+    z-index: 1;
+}
+.modal-gall > div img{
+    width: 100%;
+    display: block;
+}
+.modal-gall > div:target{
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 1s ease .1s;
+}
+.modal-gall > div:target ~ .bg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: .75;
+}
+.modal-gall > div a{
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    color: black;
+    right: 0;
+    top: 0;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    line-height: 30px;
+}
+

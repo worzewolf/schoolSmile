@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product list</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size: 14px;
+            font-family: sans-serif;
+            line-height: 1.2;
+        }
+        .wrapper{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .wrapper .product-list{
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .wrapper .product-list .product-item{
+            width: 20%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .wrapper .product-list .product-item .img{
+            background-color: grey;
+            width: 100%;
+            padding-top: 60%;
+        }
+        .wrapper .product-list .product-item .rating{
+            list-style-type: none;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .wrapper .product-list .product-item .rating > li{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        .wrapper .product-list .product-item .rating > li > span{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="product-list">
+            <li class="product-item">
+                <div class="img"></div>
+                <h3 class="title">product title</h3>
+                <ul class="rating">
+                    <li><span></span><span></span></li>
+                    <li><span></span><span></span></li>
+                    <li><span></span><span></span></li>
+                    <li><span></span><span></span></li>
+                    <li><span></span><span></span></li>
+                </ul>
+                <p class="price">1200 UAH</p>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+
+
+    </script>
+</body>
+</html>

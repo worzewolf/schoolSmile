@@ -1,0 +1,61 @@
+<?php
+include_once "Product.php";
+$block = new Product();
+$name = 'Products list';
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product list</title>
+    <link rel="stylesheet" href="css/phtml.css">
+</head>
+<body>
+<div class="product-list">
+    <?php if($name): ?>
+        <h1><?= $name; ?></h1>
+    <?php endif; ?>
+    <?php for ($i = 0; $i < $block->getCountProduct(); $i++): ?>
+        <div class="product-gallery">
+            <div class="product-item">
+                <img src="<?= $block->getImage($i);?>" alt="" class="gal">
+                <p class="item-title"><a href="#"><?= $block->getTitle($i);?></a></p>
+                <div class="product-action">
+                    <?php if ($block->getActions($i)['bestsellers']):?>
+                        <p>Category: Bestsellers</p>
+                    <?php elseif ($block->getActions($i)['eco']):?>
+                        <p>Category: Eco</p>
+                    <?php else: ($block->getActions($i)['new']);?>
+                        <p>Category: New</p>
+                    <?php endif;?>
+                </div>
+                <div class="stars">
+                    <?php
+                    $block->getPostRating($i);
+                    ?>
+                </div>
+                <div class="price order">
+                    <?php if ($block->isOnSalePrice($i)):?>
+                        <p class="oldprice"><?= $block->getPrice($i)['oldPrice'];?></p>
+                        <p class="finalprice"><?= $block->getPrice($i)['finalPrice'];?> USD</p>
+                        <div class="discount" data-parent="Discount =>">
+                            <p>-<?= $block->getDiscount($i)?>%</p>
+                        </div>
+                    <?php else: ?>
+                        <p class="finalprice"><?= $block->getPrice($i)['finalPrice'];?> USD</p>
+                    <?php endif; ?>
+                </div>
+                <form class="order-now">
+                    <label for="submit" class="order"><a href="<?= $block->getUrl($i)['url'];?>"></a></label>
+                    <input type="submit" name="Order" value="Order" id="order">
+                </form>
+            </div>
+        </div>
+    <?php endfor;?>
+</div>
+</body>
+</html>
+

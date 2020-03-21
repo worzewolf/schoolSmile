@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ip-php</title>
+    <style>
+        .wrapper{
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 10px;
+            background: grey;
+            color: white;
+            font-family: sans-serif;
+        }
+        .wrapper input,
+        .wrapper button,
+        .wrapper textarea{
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+        .anim{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: red;
+            transition: background-color .5s linear;
+        }
+        .anim.active{
+            background-color: #00a046;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="ip" value="getIp" />
+    <div id="myIp"></div>
+    <div class="wrapper">
+<!--        <form id="myForm" action="myForm.php" method="post">-->
+<!--            <input type="text" name="name" placeholder="Name" />-->
+<!--            <input type="email" name="email" placeholder="Email" />-->
+<!--            <p>Your message</p>-->
+<!--            <textarea name="description"></textarea>-->
+<!--            <button type="submit">Отправить</button>-->
+<!--        </form>-->
+        <form id="myForm" action="myForm.php" method="POST">
+            <ul>
+                <li class="active">Отзыв о товаре</li>
+                <li class="not-active">Краткий коментарий</li>
+            </ul>
+            <div class="wrapper-form">
+                <div class="star-rating">
+                    <input type="radio" id="5-stars" name="rating" value="5" />
+                    <label for="5-stars" class="star">&bigstar;<br><span>Отличный</span></label>
+                    <input type="radio" id="4-stars" name="rating" value="4" />
+                    <label for="4-stars" class="star">&bigstar;<br><span>Хороший</span></label>
+                    <input type="radio" id="3-stars" name="rating" value="3" />
+                    <label for="3-stars" class="star">&bigstar;<br><span>Нормальный</span></label>
+                    <input type="radio" id="2-stars" name="rating" value="2" />
+                    <label for="2-stars" class="star">&bigstar;<br><span>Так себе</span></label>
+                    <input type="radio" id="1-star" name="rating" value="1" />
+                    <label for="1-star" class="star">&bigstar;<br><span>Плохой</span></label>
+                </div>
+                <label class="action-input" for="qualities">Достоинства</label>
+                <input class="text-area" type="text" name="qualities" id="qualities" required/>
+                <label class="action-input" for="defects">Недостатки</label>
+                <input class="text-area" type="text" name="defects" id="defects" required/>
+                <label class="action-input" for="description">Комментарий</label><br>
+                <textarea rows=5"
+                          class="text-area" name="description" id="description"></textarea>
+                <div class="add-content">
+                    <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
+                    <label for="image" class="image-icon icons">&nbsp</label>
+                    <input type="file" id="video" name="video" accept=".mp4, .mpeg, .avi">
+                    <label for="video" class="video-icon icons">&nbsp</label>
+                    <p class="add-content-text">Добавьте фото и видео к своему отзыву,<br> чтобы он стал еще интереснее </p>
+                </div>
+                <label class="action-input" for="name">Ваше имя и фамилия </label>
+                <input class="text-area" type="text" name="full-name" id="name" required>
+                <label class="action-input" for="email">Эл. почта </label>
+                <input class="text-area" type="email" name="email" id="email" required placeholder="Введите свой электронный адрес">
+                <input type="checkbox" id="accept" name="show-feedback-on-mailbox">
+                <label class="action-input" for="accept">Уведомлять об ответах по эл. почте </label>
+                <button type="submit" name="submit" value="Оставить отзыв">Оставить отзыв</button>
+                <div class="customer-agree">
+                    <p>При регистрации вы соглашаетесь с <a href="#">пользовательским соглашением</a></p>
+                    <p> Важно! Чтобы Ваш отзыв либо комментарий прошел модерацию и был опубликован, ознакомьтесь, пожалуйста, с <a href="#">нашими правилами</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="ajax.js"></script>
+    <script src="new.js"></script>
+</body>
+</html>

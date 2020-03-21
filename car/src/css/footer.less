@@ -1,0 +1,180 @@
+footer{
+    width: 100%;
+    background-color: @bg-color;
+    .footer_hr{
+        width: 100%;
+        background-color: @text2-color;
+        margin-top: 90px;
+    }
+}
+.top_footer{
+    display: flex;
+    color: @bg-color;
+    .top_footer_menu{
+        width: calc(25%);
+        h4{
+            text-transform: uppercase;
+            padding-top: 115px;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 1.25px;
+        }
+        hr{
+            width: 115px;
+            height: 5px;
+            border: 0;
+            float: left;
+            background-color: @button-color;
+        }
+        a{
+            color: @text1-color;
+            line-height: 40px;
+            text-transform: capitalize;
+            > i{
+                color: white;
+                font-size: 30px;
+                padding-left: 5%;
+            }
+            &:hover{
+                border-bottom: 1px solid @text1-color;
+            }
+        }
+        .lorem{
+            color: @text2-color;
+            padding-top: 26px;
+            text-align: justify;
+        }
+        .mail{
+            width: 100%;
+            background-color: @mail-input-color;
+            border: 0;
+            height: 37px;
+            margin-top: 15px;
+            color: @button-txt-color;
+        }
+        .submit{
+            background-color: @button-color;
+            color: @button-txt-color;
+            border-radius: 19px;
+            text-transform: uppercase;
+            border: solid 1px @button-color;
+            height: 38px;
+            margin-top: 34px;
+            font-weight: 600;
+            letter-spacing: 1.15px;
+            width: 142px;
+            &:hover{
+                background-color: @text1-color;
+            }
+        }
+    }
+    .links{
+        padding-top: 100px;
+    }
+}
+.middle_footer{
+    width: 100%;
+    display: flex;
+    .contact_info_footer{
+        width: 40%;
+        height: 100%;
+        float: left;
+        padding-right: 10%;
+        p{
+            padding-top: 60px;
+            color: @text3-color;
+        }
+    }
+    h4{
+        padding-top: 84px;
+        font-size: 25px;
+        letter-spacing: 1.25px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    hr{
+        width: 115px;
+        height: 5px;
+        border: 0;
+        float: left;
+        background-color: #9c1c28;
+        margin-top: 16px;
+    }
+    .contact_footer{
+        width: 20%;
+        height: 100%;
+        p{
+            padding-top: 60px;
+            color: @text3-color;
+            line-height: 25px;
+            font-size: 13px;
+        }
+        i{
+            color: @button-color;
+            padding-right: 5px;
+        }
+    }
+}
+.bottom_footer{
+    display: flex;
+    p{
+        padding-top: 47px;
+        padding-bottom: 72px;
+        color: @text3-color;
+        width: 100%;
+        span{
+            color: @button-txt-color;
+        }
+    }
+    .bottom_footer_icons{
+        color: @button-txt-color;
+        padding-top: 47px;
+        font-size: 30px;
+        text-align: right;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 767px){
+    .top_footer{
+        .top_footer_menu{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .top_footer_menu1,
+        .top_footer_menu2,
+        .top_footer_menu3,
+        .top_footer_menu4{
+            width: 24%;
+        }
+        #submit{
+            width: 100%;
+        }
+    }
+    .middle_footer{
+        flex-flow: column;
+        .contact_info_footer{
+            width: 100%;
+        }
+        .contact_footer{
+            width: 100%;
+        }
+    }
+}
+@media only screen and (max-width: 500px){
+    .top_footer {
+        flex-flow: column;
+        .top_footer_menu1,
+        .top_footer_menu2,
+        .top_footer_menu3,
+        .top_footer_menu4{
+            width: 100%;
+        }
+        .top_footer_menu hr{
+            width: 0;
+        }
+        .links{
+            width: 100%;
+        }
+    }
+}

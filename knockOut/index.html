@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/knockout-3.5.1.js"></script>
+
+</head>
+<body>
+<!--    <div class="wrap">-->
+<!--        <h1>Hello <span data-bind="text:name"></span> from <span data-bind="text:location"></span></h1>-->
+<!--        <button id="setName">What is your name?</button>-->
+<!--        <button id="setLocation">Where are you from?</button>-->
+<!--    </div>-->
+<div class="wrap">
+    <h1 data-bind="text:info"></h1>
+    <button id="setName" data-bind="click: setName">What is your name?</button>
+    <button id="setLocation" data-bind="click: setLocation">Where are you from?</button>
+</div>
+<script src="js/style.js"></script>
+</body>
+</html>

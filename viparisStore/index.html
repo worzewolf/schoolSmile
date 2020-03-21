@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css"/>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="top-header">
+            <div class="left-header">
+                <div class="burger" id="burger">
+                    <span>&nbsp;</span>
+                    <span>&nbsp;</span>
+                    <span>&nbsp;</span>
+                        <ul class="burger-nav">
+                            <li><a href="#">Présentation</a></li>
+                            <li><a href="#">Accéder au site</a></li>
+                            <li><a href="#">Brancher mon stand</a></li>
+                            <li><a href="#">Aménager mon stand</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Autour de ma manifestation</a></li>
+                        </ul>
+                    </div>
+                <a href="#" class="logo">
+                    <img src="ima/logo.svg" alt="logo">
+                </a>
+            </div>
+            <div class="right-header">
+                <span class="cart">&nbsp;</span>
+                <ul class="action-menu">
+                    <li class="login"><a href="#">mon compte</a></li>
+                    <li class="favourite"><a href="#">liste d'achats</a></li>
+                    <li class="language1">
+                        <a href="#" class="fr"><img src="ima/fr.png" alt=""></a>
+                    </li>
+                    <li class="language2">
+                        <a href="#" class="gb"><img src="ima/gb.png" alt=""></a>
+                    </li>
+                </ul>
+                <ul class="mobile-action-menu">
+                    <li class="mob like"><a href="#"><img src="ima/favourite.png" alt=""></a></li>
+                    <li class="mob srch"><a href="#"><img src="ima/Loupe.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-logo"></div>
+            <p>Mondial de l’automobile</p>
+
+            <div class="navigation">
+                <ul class="header-nav">
+                    <li><a href="#">Présentation</a></li>
+                    <li><a href="#">Accéder <br>au site</a></li>
+                    <li><a href="#">Brancher <br>mon stand</a></li>
+                    <li><a href="#">Aménager <br>mon stand</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Autour de ma <br>manifestation</a></li>
+                </ul>
+                <div class="search-extended">
+                    <div class="search">
+                        <input type="button" value="" class="searchbtn">
+                        <input type="text" placeholder="Recherche" class="searchpole">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="wrapper">
+        <div class="main-wrapper main-head">
+            <div class="roadmap">
+                <ul>
+                    <li><a href="#">accueil</a></li>
+                    <li><a href="#">présentation</a></li>
+                    <li><a href="#">brancher mon stand</a></li>
+                    <li><a href="#" class="active">éléctricité</a></li>
+                </ul>
+                <div class="sort-info">
+                    <p><span>Palais des Congrès de Paris</span> du 01/10/2016 au 16/11/2016</p>
+                </div>
+            </div>
+            <div class="sort-btn">
+                <ul>
+                    <li><a href="#">Fermeture catalogue  jj/mm/aaaa</a></li>
+                    <li><a href="#">Date de majoration jj/mm/aaaa</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-wrapper">
+            <div class="category-title">
+                <span>éléctricité</span>
+            </div>
+        </div>
+        <div class="main-wrapper">
+            <div class="main-content">
+                <div class="aside">
+                <div class="filters">
+                    <div class="filters-title">
+                        <h5>votre sélection</h5>
+                        <span>filter par</span>
+                    </div>
+                    <div class="filter-list">
+                        <div class="checked-links">
+                            <span>Vendeur n°1 <a href="#">&nbsp;</a></span>
+                            <span>Vendeur numéro trois sur 2 deux lignes <a href="#">&nbsp;</a></span>
+                        </div>
+                        <div class="spoiler">
+                            <details>
+                                <summary>Catégories</summary>
+                                <ul>
+                                    <li><a href="#">category 1</a></li>
+                                    <li><a href="#">category 2</a></li>
+                                    <li><a href="#">category 3</a></li>
+                                </ul>
+                            </details>
+                            <details>
+                                <summary>prix</summary>
+                                <ul>
+                                    <li><a href="#">category 1</a></li>
+                                    <li><a href="#">category 2</a></li>
+                                    <li><a href="#">category 3</a></li>
+                                </ul>
+                            </details>
+                            <details>
+                                <summary>Vendeur</summary>
+                                <ul>
+                                    <li><a href="#">category 1</a></li>
+                                    <li><a href="#">category 2</a></li>
+                                    <li><a href="#">category 3</a></li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="additional-options">
+                            <input type="checkbox" name="option" class="filter-option" id="v1">
+                            <label for="v1">Vendeur n°1<span>(12)</span></label>
+                            <input type="checkbox" name="option" class="filter-option" id="v2">
+                            <label for="v2">Vendeur numéro 2<span>(28)</span></label>
+                            <input type="checkbox" name="option" class="filter-option" id="v3">
+                            <label for="v3">Vendeur numéro trois sur<br> 2 deux lignes<span>(17)</span></label>
+                            <input type="checkbox" name="option" class="filter-option" id="v4">
+                            <label for="v4">Vendeur n°4<span>(53)</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner">
+                    <div class="banner-header">
+                        <img src="ima/Forme_10.png" alt="">
+                        <h5>Réalisez le plan de<br> vote stand</h5>
+                    </div>
+                    <div class="banner-info">
+                        <p>Les produits électriques nécessitent que vous complétiez le plan à transmettre lors de la commande pour réaliser l'installation.</p>
+                        <p><img src="ima/Rectangle_20.png" alt="">&nbsp;&nbsp;Télécharger le gabarit du plan</p>
+                    </div>
+                </div>
+            </div>
+                <div class="products">
+                    <div class="products-responsive-view">
+                        <div class="products-sum">
+                            <span class="summ">137</span>
+                            <span>produits</span>
+                        </div>
+                        <div class="type-of-view">
+                            <label class="type-select" for="prix-select">
+                                <select name="prix" id="prix-select">
+                                    <option value="1">Prix</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </label>
+                            <label class="type-select" for="qty-display">&nbsp;
+                                <select name="qty" id="qty-display">
+                                    <option value="10">10 per page</option>
+                                    <option value="15">15 per page</option>
+                                    <option value="20">20 per page</option>
+                                    <option value="25">25 per page</option>
+                                </select>
+                            </label>
+                            <label class="type-select" for="le-plus-cher">&nbsp;
+                                <select name="cher  " id="le-plus-cher">
+                                    <option value="10">Le plus cher</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                </select>
+                            </label>
+                            <input type="radio" name="typeOfView" id="listView">
+                            <label class="view-type list" for="listView">&nbsp;</label>
+                            <input type="radio" name="typeOfView" id="tableView">
+                            <label class="view-type table" for="tableView">&nbsp;</label>
+                        </div>
+
+                    </div>
+                    <div class="product firstprod">
+                        <div class="nouveau"><div>nouveau</div></div>
+                        <div class="product-info">
+                            <a href="#" alt=""/><img src="ima/Calque_38.png" alt=""></a>
+                            <div>
+                                <a>Branchement intermittent 240 V</a>
+                                <span class="en-stock">En stock</span>
+                                <p>A partir de <span>00,00 € HT / m<sup>2</sup></span></p>
+                            </div>
+                        </div>
+                        <div class="product-order">
+                            <p>A partir de <span>00,00 € HT</span></p>
+                            <a href="#">voir le produit</a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <a href="#" alt=""/><img src="ima/Calque_37.png" alt=""></a>
+                            <div>
+                                <a>Branchement intermittent 240 V</a>
+                                <span class="de-stock">En rupture de stock</span>
+                                <p>A partir de <span>00,00 € HT</span></p>
+                            </div>
+                        </div>
+                        <div class="product-order">
+                            <p>A partir de <span>00,00 € HT</span></p>
+                            <a href="#">voir le produit</a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <a href="#" alt=""/><img src="ima/2-layers.png" alt=""></a>
+                            <div>
+                                <a>Transformateur électrique</a>
+                                <span class="en-stock">En stock</span>
+                                <p>A partir de <span>00,00 € HT</span></p>
+                            </div>
+                        </div>
+                        <div class="product-order">
+                            <p>A partir de <span>00,00 € HT</span></p>
+                            <a href="#">voir le produit</a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <a href="#" alt=""/><img src="ima/2-layers.png" alt=""></a>
+                            <div>
+                                <a>Transformateur électrique</a>
+                                <span class="en-stock">En stock</span>
+                                <p>A partir de <span>00,00 € HT</span></p>
+                            </div>
+                        </div>
+                        <div class="product-order">
+                            <p>A partir de <span>00,00 € HT</span></p>
+                            <a href="#">voir le produit</a>
+                        </div>
+                    </div>
+                    <div class="product lastprod">
+                        <div class="product-info">
+                            <a href="#" alt=""/><img src="ima/2-layers.png" alt=""></a>
+                            <div>
+                                <a>Transformateur électrique</a>
+                                <span class="en-stock">En stock</span>
+                            </div>
+                        </div>
+                        <div class="product-order">
+                            <p>A partir de <span>00,00 € HT</span></p>
+                            <a href="#">voir le produit</a>
+                            <p>A partir de <span>00,00 € HT</span></p>
+                        </div>
+                    </div>
+                    <div class="product page-nav">
+                        <div class="page-navigation">
+                            <a class="arrows prev" href="#"></a>
+                            <a class="active" href="#">1</a>
+                            <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a class="arrows next" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-wrapper">
+            <div class="demands">
+                <div class="demands-logo"><img src="ima/3-layers.png" alt=""><span>devis</span></div>
+                <p>Aucun produit ne correspond à votre recherche<br> Un besoin sur mesure ou une demande de prestation</p>
+                <a href="#">Demandez<br> un devis <br><br><img src="ima/arr-right.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="wrapper">
+        <div class="footer-contact">
+            <a href="#">Besoin d'aide ?</a>
+            <ul>
+                <li>
+                    <ul>
+                        <li><img src="ima/Faq.png" alt=""><a href="#">faq</a></li>
+                        <li><img src="ima/Tchat.png" alt=""><a href="#">tchat</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="ima/Appel.png" alt=""><a href="#">appeler</a></li>
+                        <li><img src="ima/Contact.png" alt=""><a href="#">contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <div class="left-infos col2">
+                <div class="left-col">
+                    <div class="left-info col1">
+                        <h4>premier salon</h4>
+                        <hr>
+                        <a>Les informations clés</a>
+                    </div>
+                    <div class="left-info col1">
+                        <h4>Service exposants</h4>
+                        <hr>
+                        <a>Les conseils<br> de nos experts</a>
+                    </div>
+                </div>
+                <div class="right-col">
+
+                    <div class="left-info col1">
+                        <h4>Liste d’achats</h4>
+                        <hr>
+                        <a>Réservez avant<br> de commander</a>
+                    </div>
+                    <div class="left-info col1">
+                        <h4>Devenir prestataire</h4>
+                        <hr>
+                        <a>Donnez de la visibilité<br> à vos produits</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-infos">
+                <div class="subscription col2">
+                    <div>
+                        <h3>Lettre d’information</h3>
+                        <p>Etre alerté des avantages & nouveautés</p>
+                        <div class="email">
+                            <input type="text" placeholder="Votre adresse mail">
+                            <button type="button" value="submit">OK</button>
+                        </div>
+                    </div>
+                    <div class="social-extended">
+                        <h4>Viparis social</h4>
+                        <p>Restez connecter sur les réseaux sociaux</p>
+                        <div class="social">
+                            <a href="#"><span><img src="ima/Facebook.png" alt=""></span></a>
+                            <a href="#"><span><img src="ima/Youtube.png" alt=""></span></a>
+                            <a href="#"><span><img src="ima/In.png" alt=""></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-us col2">
+                    <h3>Sites du groupe</h3>
+                    <p>Découvrez notre groupe</p>
+                    <a href="#">viparis.com</a>
+                    <a href="#">venuesinparis.com</a>
+                </div>
+            </div>
+
+            <a href="#" class="home" id="home"><i class="fas fa-long-arrow-alt-up"></i></a>
+        </div>
+        <div class="bottom-footer">
+            <div class="wrapper">
+                <span>© Viparis 2016</span>
+                <ul>
+                    <li><a href="#">A propos de Viparis</a></li>
+                    <li><a href="#">Crédits & mentions légales</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">CGV - CGU</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/style.js"></script>
+</body>
+</html>

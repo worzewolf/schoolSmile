@@ -1,0 +1,194 @@
+.main_tab{
+    width: 100%;
+}
+.headlight{
+    width: calc(50%);
+    height: 408px;
+    display: flex;
+    float: left;
+    background-color: @headlight-color;
+    background-size: 60%;
+    p{
+        padding: 25px 0 0 56px;
+        color: @text2-color;
+        text-transform: capitalize;
+    }
+    h2{
+        padding: 165px 0 0 56px;
+    }
+    &:first-child{
+        background: url("@{path-img}fars.png") no-repeat 100% 50%;
+        background-color: @headlight-color1;
+    }
+    &:nth-child(2n){
+        background: url("@{path-img}stoppes.png") no-repeat 100% 50%;
+        background-color: @headlight-color;
+    }
+    &:nth-child(3n){
+        background: url("@{path-img}disc2.png") no-repeat 100% 30%, url("@{path-img}disc.png") no-repeat 100% 50%;
+        background-color: @headlight-color;
+    }
+    &:last-child{
+        background: url("@{path-img}chair.png") no-repeat 100% 50%;
+        background-color: @headlight-color1;
+    }
+    &:nth-child(n){
+        background-size: 50%;
+    }
+    &:hover{
+        background-color: @headlight-hovered-color;
+        h2,p{
+            color: @text1-color;
+        }
+    }
+}
+.main_tab{
+    width: 100%;
+}
+.featured_products{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 122px;
+    span{
+        margin: 0 auto;
+        text-transform: uppercase;
+        padding-top: 86px;
+        font-size: 35px;
+        letter-spacing: 1.75px;
+        font-weight: 700;
+        color: @price-color;
+        text-align: center;
+        width: 100%;
+    }
+    .products{
+        padding-top: 66px;
+        display: flex;
+        width: 100%;
+    }
+    .product_item{
+        background-color: #363636;
+        height: 372px;
+        justify-content: space-around;
+        margin-left: 3%;
+        &:first-child{
+            margin-left: 6%;
+        }
+        &:last-child{
+            margin-right: 6%;
+        }
+        img{
+            padding-top: 30%;
+            width: 100%;
+        }
+        a{
+            text-align: center;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            color: @text1-color;
+            line-height: 35px;
+            &:hover{
+                background-color: @headlight-hovered-color;
+            }
+        }
+    }
+}
+.discounts{
+    background: url("@{path-img}bgimg.png") no-repeat center center;
+    background-size: cover;
+        height: 60vh;
+    .sale_banner{
+        width: 100%;
+        display: flex;
+        hr{
+            width: 2px;
+            height: 170px;
+            margin-top: 250px;
+            background-color: @banner-vertical-line-color;
+        }
+        .sales1{
+            padding-right: 10%;
+        }
+        .sales2{
+            padding-left: 10%;
+        }
+        .sales{
+            width: calc(50%);
+            text-align: center;
+            text-transform: uppercase;
+            padding-top: 10%;
+            h2{
+                font-size: 82px;
+                font-weight: 700;
+            }
+            h3{
+                font-size: 40px;
+                font-weight: 700;
+                padding-top: 18px;
+            }
+            h5{
+                text-transform: capitalize;
+                padding-top: 28px;
+            }
+            .buynow{
+                padding-top: 30px;
+            }
+            #button1,#button2{
+                background-color: @button-color;
+                color: @button-txt-color;
+                border-radius: 19px;
+                text-transform: uppercase;
+                border: solid 1px @button-color;
+                width: 190px;
+                height: 38px;
+                font-weight: 600;
+                letter-spacing: 1.15px;
+                &:hover{
+                    background-color: red;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1480px){
+    .headlight h2{
+        padding-top: 90%;
+    }
+}
+@media only screen and (max-width: 992px){
+    .headlight{
+        width: 100%;
+    }
+    .discounts .sale_banner{
+        flex-flow: column;
+        hr{
+            width: 60%;
+            height: 2px;
+            margin-top: 100px;
+        }
+        .sales{
+            width: 100%;
+            align-content: center;
+        }
+        .sales1{
+            padding-right: 0;
+        }
+        .sales2{
+            padding-left: 0;
+        }
+    }
+    .featured_products{
+        .products{
+            flex-flow: column;
+            .product_item{
+                margin: 1%;
+                img{
+                    padding-top: 5%;
+                    width: auto;
+                }
+            }
+        }
+    }
+}

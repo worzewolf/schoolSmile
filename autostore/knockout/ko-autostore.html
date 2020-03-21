@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AutoStore</title>
+    <script src="js/knockout-3.5.1.js"></script>
+    <link rel="stylesheet" href="css/autostore.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+<header>
+    <div class="header__stretch">
+        <div class="page-wrapper">
+            <div class="header__top-menu action-menu">
+                <div class="action-menu__signIn">
+                    <!--<i class="fas fa-lock"></i>-->
+                    <a href="#" class="link" title="Sign In">
+                        Sign In <span>/</span> Create an Account
+                    </a>
+                </div>
+                <!--<div class="action-menu__lang-chooser">
+                    <span class="current">french</span>
+                    <i class="fas fa-angle-down"></i>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li class="dropdown-list__item">
+                                <img src="./dist/ima/UK.svg" alt="Eng">
+                                <span>English</span>
+                            </li>
+                            <li class="dropdown-list__item">
+                                <img src="./dist/ima/Ger.svg" alt="Ger">
+                                <span>German</span>
+                            </li>
+                            <li class="dropdown-list__item">
+                                <img src="./dist/ima/Belg.svg" alt="Bel">
+                                <span>Belgium</span>
+                            </li>
+                            <li class="dropdown-list__item">
+                                <img src="./dist/ima/Arg.svg" alt="Arg">
+                                <span>Argentina</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="action-menu__currency-chooser">
+                    <span class="current">usd</span>
+                    <i class="fas fa-angle-down"></i>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li class="dropdown-list__item">EUR – Euro</li>
+                            <li class="dropdown-list__item">GBP – Pound</li>
+                        </ul>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="page-wrapper">
+        <div class="header__main">
+            <div class="col-1">
+                <a href="#" class="link logo-link" title="Auto Store">
+                </a>
+            </div>
+            <div class="col-2 search__container">
+                <input type="text" class="search__input" placeholder="Search products...">
+                <span class="search__button"></span>
+            </div>
+            <div class="col-1 cart-block clearfix-block">
+                <div class="wish-list" id="favorite" data-bind="css:{active: favList().length > 0}">
+                    <span class="cart__counter" data-bind="text:favList().length">0</span>
+                </div>
+                <div class="cart-wrapper" id="minicart">
+                <div class="cart">
+                    <span class="shopping-basket">
+                        <img src="../ima/cart.png" height="17" width="22"/>
+                    </span>
+                    <span class="cart__total">My Cart
+                        <span data-bind="text: totalCart"></span>
+                    </span>
+                    <span class="cart__counter" data-bind="text:totalQty"></span>
+                </div>
+                <div class="mini-cart" data-bind="visible: cartList().length > 0">
+                    <ul>
+                        <li data-bind="foreach:cartList">
+                            <div class="mini-cart__details clearfix-block">
+                                <a href="#" class="link mini-cart__image">
+                                    <img data-bind="attr:{src: img, alt: title}"/>
+                                </a>
+                                <span data-bind="click: $root.removeCart">x</span>
+                                <div class="mini-cart__params">
+                                    <a href="#" class="link mini-cart__title" data-bind="text:title"></a>
+                                    <span>See Details</span>
+                                    <div class="mini-cart__details-block">
+                                        <span class="mini-cart__details-name" data-bind="if:color() != ''">Color</span><span data-bind="text:color"></span>
+                                        <span class="mini-cart__details-name" data-bind="if:brand() != ''">Brand</span><span data-bind="text:brand"></span>
+                                        <span class="mini-cart__details-name" data-bind="if:model() != ''">Model</span><span data-bind="text:model"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mini-cart__counter">
+                                <span>Qty:</span>
+                                <input type="text" data-bind="value:qty">
+                                <span class="mini-cart__update-btn" data-bind="click:function() {qty(qty() + 1)}">+</span>
+                                <span class="mini-cart__update-btn" data-bind="click:function(product) {qty() > 1 ? qty(qty() - 1) : $root.removeCart(product)}">-</span>
+                                <span class="mini-cart__counter__sum" data-bind="text:$data.sale() ? salePrice() * qty() : price() * qty()"></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mini-cart__total clearfix-block">
+                        <span>cart subtotal:</span>
+                        <span data-bind="text: totalCart"></span>
+                    </div>
+                    <div class="mini-cart__buttons clearfix-block">
+                        <div class="mini-cart__view-btn">view cart</div>
+                        <div class="mini-cart__checkout-btn">checkout</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="products__content">
+    <div class="page-wrapper clearfix-block">
+        <div class="filters">
+            <div class="filters-block" id="filters">
+                <h2 class="filters-block__title">Shop By</h2>
+                <div class="filters-block__filter-group">
+                    <div class="filter-group__name">color</div>
+                    <div class="filter-group__filter-items">
+                        <ul class="colors-filter__wrapper" data-bind="foreach: color">
+                            <li class="color-filter" style="background-color: #000000" data-bind="attr:{style: 'background-color:' + $data}"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filters-block__filter-group">
+                    <div class="filter-group__name">price</div>
+                    <div class="filter-group__filter-items price-slider__wrapper">
+                        <div class="price-slider__slider"></div>
+                        <div class="price-slider__controls">
+                            <span>$</span>
+                            <input type="text" class="price-slider__controls__input price-min" value="0" />
+                            <span>-$</span>
+                            <input type="text" class="price-slider__controls__input price-max" value="0"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters-block__filter-group">
+                    <div class="filter-group__name">brand</div>
+                    <div class="filter-group__filter-items">
+                        <ul class="brands-filter__wrapper" data-bind="foreach: brand">
+                            <li class="brand-filter" data-bind="click:function(data,e){$root.setFilter(data,e,'brand')}">
+                                <a class="brand-filter__title" data-bind="text: $data"></a>
+                                (<span class="brand-filter__quantity" data-bind="text:$root.countBrand($data)"></span>)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filters-block__filter-group">
+                    <div class="filter-group__name">model</div>
+                    <div class="filter-group__filter-items">
+                        <ul class="models-filter__wrapper" data-bind="foreach: model">
+                            <li class="model-filter" data-bind="text: $data"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filters-block__filter-group">
+                    <div class="filter-group__name">year</div>
+                    <div class="filter-group__filter-items">
+                        <ul data-bind="foreach: year">
+                            <li class="year-filter" data-bind="text: $data"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="compare-block" id="compare">
+                <h2 class="compare-block__title">Compare products</h2>
+                <ul class="compare-list" data-bind="foreach: compareList">
+                    <li class="compare-list__item">
+                        <span data-bind="text:title">Radio Transmitter Adapter</span>
+                        <span data-bind="click: $root.removeCompare">x</span>
+                    </li>
+                </ul>
+                <div class="compare-controls" data-bind="visible: compareList().length > 0">
+                    <div class="compare_btn">compare</div>
+                    <div class="clear_btn" data-bind="click: removeAll">Clear all</div>
+                </div>
+            </div>
+        </div>
+        <div class="search-result__wrapper">
+            <h1 class="search-result__heading">Baby Car Seats</h1>
+            <div class="search-result__controls"></div>
+            <div class="search-result__products" data-bind="foreach:productList" id="productList">
+                <div class="product-item" data-bind="css:{sale: sale, new: newAction}, visible:visible">
+                    <div class="product-item__image">
+                        <img  data-bind="attr:{src:img, alt:title}">
+                    </div>
+                    <div class="product-item__controls">
+                        <a href="#" class="wish-list_btn" data-bind="click: $root.addFavorite, css:{wish: favorite}"></a>
+                        <a href="#" class="link cart_btn" data-bind="click: $root.addCart">add to cart(<span data-bind="text:qty"></span>)</a>
+                        <a href="#" class="compare_btn" data-bind="click: $root.addCompare, css:{active: compaired}"></a>
+                    </div>
+                    <div class="product-item__content">
+                        <div class="product-item__content__title" data-bind="text: title"></div>
+                        <div class="product-item__content__rating" data-bind="text: rating"></div>
+                        <div class="product-item__content__prices" data-bind="html: prices"></div>
+                        <div class="product-item__content__info">
+                            Brand: <span data-bind="text: brand"></span>;
+                            Model: <span data-bind="text: model"></span>;
+                            Color: <span data-bind="text: color"></span>;
+                            Year: <span data-bind="text: year"></span>;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-wrapper" id="addProduct">
+                    <h2>Add product</h2>
+                <div class="col-1">
+                    <label for="title" data-bind="css:{required: title() === '' && required}">Title</label>
+                    <label for="image" data-bind="css:{required: img() === '' && required}">Image</label>
+                    <label for="price" data-bind="css:{required: price() === '' && required}">Price</label>
+                    <label for="salePrice">Sale Price</label>
+                    <label for="color" data-bind="css:{required: color() === undefined && required}">Color</label>
+                    <label for="brand" data-bind="css:{required: brand() === undefined && required}">Brand</label>
+                    <label for="model" data-bind="css:{required: model() === undefined && required}">Model</label>
+                    <label for="year" data-bind="css:{required: year() === undefined && required}">Year</label>
+                </div>
+                <div class="col-2">
+                    <input type="text" name="title" id="title" data-bind="value:title">
+                    <input type="text" name="image" id="image" data-bind="value:img">
+                    <input type="text" name="price" id="price" data-bind="value:price">
+                    <input type="text" name="salePrice" id="salePrice" data-bind="value:salePrice">
+                    <div>
+                        <select name="color" id="color" data-bind="options: colorOptions, optionsCaption: 'Choose color', value: color"></select>
+                        <button type="button" data-bind="click: function(){addAttribute('color');}">+</button>
+                    </div>
+                    <div>
+                        <select name="brand" id="brand" data-bind="options: brandOptions, optionsCaption: 'Choose brand', value: brand"></select>
+                        <button type="button" data-bind="click: function(){addAttribute('brand');}">+</button>
+                    </div>
+                    <div>
+                        <select name="model" id="model" data-bind="options: modelOptions, optionsCaption: 'Choose model', value: model"></select>
+                        <button type="button" data-bind="click: function(){addAttribute('model');}">+</button>
+                    </div>
+                    <div>
+                        <select name="year" id="year" data-bind="options: yearOptions, optionsCaption: 'Choose year', value: year"></select>
+                        <button type="button" data-bind="click: function(){addAttribute('year');}">+</button>
+                    </div>
+                </div>
+                <label>New
+                    <input type="checkbox" name="new" id="new" data-bind="checked: newAction">
+                </label>
+                <label>Sale
+                    <input type="checkbox" name="sale" id="sale" data-bind="checked: sale">
+                </label>
+                <div class="rating-wrapper">Rating
+                    <input type="radio" name="rating" id="r1" data-bind="checked: rating" value="1">
+                    <label>1</label>
+                    <input type="radio" name="rating" id="r2" data-bind="checked: rating" value="2">
+                    <label>2</label>
+                    <input type="radio" name="rating" id="r3" data-bind="checked: rating" value="3">
+                    <label>3</label>
+                    <input type="radio" name="rating" id="r4" data-bind="checked: rating" value="4">
+                    <label>4</label>
+                    <input type="radio" name="rating" id="r5" data-bind="checked: rating" value="5">
+                    <label>5</label>
+                </div>
+                <button type="button" class="addBtn" data-bind="click: addProduct">Add product</button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer></footer>
+<script>
+
+    function setFilterPrice(maxPrice) {
+        var max = document.querySelector('.price-max');
+        if (maxPrice > +max.value){
+            max.value = +maxPrice;
+        }
+    }
+
+    function Attributes() {
+        this.color = ko.observableArray([]);
+        this.brand = ko.observableArray([]);
+        this.model = ko.observableArray([]);
+        this.year = ko.observableArray([]);
+        this.countBrand = function (brand) {
+            var count = 0,
+                products = productList.productList();
+            for(var i = 0; i < products.length; i++){
+                if(products[i].brand() === brand) count++;
+            }
+            return count;
+        }
+        this.setFilter = function(data, e, filter){
+            for(var i = 0; i < productList.productList().length; i++){
+                console.log( productList.productList(),productList.productList()[i].visible,productList.productList()[i][filter]());
+                productList.productList()[i].visible(!(productList.productList()[i][filter]() !== data));
+            }
+        }
+    }
+
+    function Product(title, img, price, salePrice, newAction, sale, rating, color, brand, model, year) {
+        this.title = ko.observable(title || '');
+        this.img = ko.observable(img || '');
+        this.price = ko.observable(price || '');
+        this.salePrice = ko.observable(salePrice || '');
+        this.newAction = ko.observable(newAction || false);
+        this.sale = ko.observable(sale || false);
+        this.rating = ko.observable(rating || '');
+        this.color = ko.observable(color || '');
+        this.brand = ko.observable(brand || '');
+        this.model = ko.observable(model || '');
+        this.year = ko.observable(year || '');
+        this.qty = ko.observable(0);
+        this.prices = ko.computed(function () {
+            var html = '';
+            if(this.sale()){
+                html += '<span class="full-price">$' + this.salePrice() + '</span>';
+               html += '<span class="old-price">$' + this.price() + '</span>';
+            }
+            else{
+                html += '<span class="full-price">$' + this.price() + '</span>'
+            }
+            return html;
+        }, this);
+        this.compaired = ko.observable(false);
+        this.favorite = ko.observable(false);
+        this.visible = ko.observable(true);
+    }
+
+    function AddProduct() {
+        this.title = product.title;
+        this.img = product.img;
+        this.price = product.price;
+        this.salePrice = product.salePrice;
+        this.newAction = product.newAction;
+        this.sale = product.sale;
+        this.rating = product.rating;
+        this.colorOptions = attributes.color;
+        this.color = ko.observable();
+        this.brandOptions = attributes.brand;
+        this.brand = ko.observable();
+        this.modelOptions = attributes.model;
+        this.model = ko.observable();
+        this.yearOptions = attributes.year;
+        this.year = ko.observable();
+        this.addAttribute = function (nameAttribute) {
+            console.log(nameAttribute, this);
+            var value = prompt('Enter ' + nameAttribute);
+            console.log(this);
+            if(value){
+                this[nameAttribute + 'Options'].push(value);
+            }
+        };
+        this.required = ko.observable(false);
+        this.addProduct = function () {
+            if(this.title() && this.img() && this.price() && this.color() && this.brand() && this.model() && this.year()){
+
+                setFilterPrice(this.sale() ? this.salePrice() : this.price());
+
+                productList.productList.push(new Product(this.title(), this.img(), this.price(), this.salePrice(), this.newAction(),
+                this.sale(), this.rating(), this.color(), this.brand(), this.model(), this.year()));
+                this.required(false);
+                this.clearForm();
+            } else {
+                this.required(true);
+            }
+        };
+        this.clearForm = function () {
+            this.title('');
+            this.img('');
+            this.price('');
+            this.salePrice('');
+            this.newAction(false);
+            this.sale(false);
+            this.rating('');
+            this.model('');
+            this.color(undefined);
+            this.brand('');
+            this.year('');
+        }
+    }
+
+    function Compare() {
+        this.compareList = ko.observableArray([]);
+        this.removeCompare = function (product) {
+            product.compaired(false);
+            this.compareList.remove(product);
+        }.bind(this);
+        this.removeAll = function () {
+            if(this.compareList().length){
+                this.setCompairedStatus();
+                this.compareList.removeAll();
+            }
+        }.bind(this);
+        this.setCompairedStatus = function () {
+            for(var i = 0; i < this.compareList().length; i++){
+                this.compareList()[i].compaired(false);
+            }
+        }
+    }
+
+    function Favorites() {
+        this.favList = ko.observableArray([]);
+    }
+
+    function Cart() {
+        this.cartList = ko.observableArray([]);
+        this.totalQty = ko.computed(function () {
+            var totalQty = 0,
+                list = this.cartList();
+            for(var key in list){
+                totalQty += list[key].qty();
+            }
+            return totalQty;
+        },this);
+        this.totalCart = ko.computed(function () {
+            var totalCart = 0,
+                list = this.cartList();
+            for(var key in list){
+                totalCart += list[key].sale() ? list[key].salePrice() * list[key].qty() : list[key].price() * list[key].qty();
+            }
+            return totalCart;
+        },this);
+        this.removeCart = function (product) {
+            product.qty(0);
+            this.cartList.remove(product);
+        }.bind(this);
+    }
+
+    function ProductList() {
+        this.productList = ko.observableArray([]);
+        this.addProduct = function (product) {
+            var max = document.querySelector('.price-max');
+            console.log(max);
+            for (var key in product){
+                if (key == 'price'){
+                    setFilterPrice(product[key]());
+                    /*if (+product[key]() > +max.value){
+                        console.log(product[key]());
+                        max.value = +product[key]();
+                    }*/
+                }
+                if(key === 'color' || key === 'brand' || key === 'model' || key === 'year'){
+                    if (attributes[key]().indexOf(product[key]()) === -1) attributes[key].push(product[key]());
+                }
+            }
+            if(product) this.productList.push(product)
+        };
+        this.addCompare = function (product) {
+            if (!product.compaired()){
+                console.log(product.compaired());
+                compare.compareList.push(product);
+                product.compaired(true);
+            }
+            console.log(product.compaired());
+        };
+        this.addFavorite = function (product) {
+            console.log(product);
+            if(!product.favorite()){
+                favorite.favList.push(product);
+                product.favorite(true);
+                console.log(favorite.favList().length);
+            }
+            else{
+                console.log('remove');
+                favorite.favList.remove(product);
+                product.favorite(false);
+            }
+        }
+        this.addCart = function (product) {
+            var status = false;
+            var i = 0;
+            for(; i < cart.cartList().length; i++){
+                if(cart.cartList()[i] === product){
+                    status = true;
+                    break;
+                }
+            }
+            product.qty(product.qty() + 1);
+            if(!status){
+                cart.cartList.push(product);
+            }
+        }
+    }
+
+    var attributes = new Attributes(),
+        compare = new Compare(),
+        favorite = new Favorites(),
+        product = new Product(),
+        addProduct = new AddProduct(),
+        productList = new ProductList();
+        cart = new Cart();
+
+    ko.applyBindings(addProduct, document.querySelector('#addProduct'));
+    ko.applyBindings(attributes, document.querySelector('#filters'));
+    ko.applyBindings(productList,document.querySelector('#productList'));
+    ko.applyBindings(compare, document.querySelector("#compare"));
+    ko.applyBindings(cart, document.querySelector('#minicart'));
+    ko.applyBindings(favorite, document.querySelector("#favorite"));
+
+    /*productList.productList.subscribe(function (value) {
+        //console.log(value[0].title);
+        var max = document.querySelector('price-max');
+        for (var i = 0; i < value.length; i++){
+            for (var key in value[i]){
+                if (key == 'price'){
+                    if (+value[i][key]() > + max.value){
+                        priceFilter.slider('option', 'max', value[i][key]());
+                        priceFilter.slider('value', 1, value[i][key]());
+                        document.querySelector('price-max').value(value[i][key]());
+                    }
+                }
+            }
+        }
+    });*/
+    /*productList.productList.push(
+        new Product('Car cit', '../ima/car_kit.png', 50, 40, false, false, 5, 'red', 'BMW', 'X5', '2019')
+    );*/
+    productList.addProduct(new Product('Car Kit Hands Free Calling', 'ima/related/1.png', 80, 50, false, false, 5, 'red', 'BMW', 'X5', '2019'));
+    productList.addProduct(new Product('Design in car fm radio', 'ima/related/2.png', 150, 0, false, false, 5, 'black', 'Toyota', 'Corolla', '2012'));
+    productList.addProduct(new Product('Car cit', 'ima/related/3.png', 100, 50, false, true, 5, 'green', 'Toyota', '6', '2017'));
+</script>
+</body>
+</html>

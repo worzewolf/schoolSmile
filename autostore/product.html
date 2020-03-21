@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product_page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css"/>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/knockout-3.5.1.js"></script>
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="wrapper">
+                <div class="select-currency">
+                    <div class="currency-checked">usd</div>
+                    <div class="currency" id="currency">
+                        <div class="currency-var"><a href="#">EUR - Euro</a></div>
+                        <div class="currency-var"><a href="#">GBP - Pound</a></div>
+                    </div>
+                </div>
+                <div class="select-language">
+                    <div class="french"><img src="ima/flags/france.png" alt="">&nbsp;&nbsp;french</div>
+                    <div class="language" id="language">
+                        <div class="lang-box english"><img src="ima/flags/britain.png" alt="">&nbsp;english</div>
+                        <div class="lang-box german"><img src="ima/flags/german.png" alt="">&nbsp;german</div>
+                        <div class="lang-box belgium"><img src="ima/flags/belgium.png" alt="">&nbsp;belgium</div>
+                        <div class="lang-box argentina"><img src="ima/flags/argentina.png" alt="">&nbsp;argentina</div>
+                    </div>
+                </div>
+                <p><a href="#">Sign In</a>&nbsp;&nbsp;/&nbsp;<a href="#">Create an Account</a></p>
+                <i class="fas fa-lock"></i>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="wrapper">
+                <div class="header-logo">
+                    <img src="ima/image%201.png" alt="header-logo-car"/>
+                </div>
+                <div class="search-pole">
+                    <input type="text" name="text" id="text" class="search-input-pole" placeholder="Search products...">
+                    <input type="button" id="search" class="search-input-btn" value="">
+                    <label for="search" class="search-btn">&nbsp;</label>
+                </div>
+                <div class="cart-menu">
+                    <input type="button" class="like-btn" id="like-btn">
+                    <label for="like-btn" class="like-btn">&nbsp;</label>
+                    <div class="cart-popup-btn">
+                        <a href="#" class="basket">
+                            <i class="fas fa-shopping-basket"></i>
+                        </a>
+                        <div class="counter-block"><p data-bind="value: 1">1</p></div>
+                        <p>My Cart&nbsp;<span data-bind="value: 205.00">&nbsp;$205.00</span></p>
+                        <div class="cart-popup-btn-hover">
+                            <div class="btn-wrapper">
+                                <div class="description">
+                                    <div class="description-img">
+                                        <img src="ima/gal/aosake_leather_steering_wheels_3%201.png" style="height: 113px; width: 113px; border: 1px solid lightgrey" alt="">
+                                    </div>
+                                    <div class="description-txt">
+                                        <div class="cart-title">
+                                            <a href="#">Carbon Fiber Steering Wheel</a>
+                                        </div>
+                                        <details class="cart-details">
+                                            <summary>See Details</summary>
+                                            <p><b>Size&nbsp;</b>S&nbsp;&nbsp;<b>Color&nbsp;</b>Blue</p>
+                                        </details>
+                                    </div>
+                                </div>
+                                <div class="quantity-to-buy">
+                                    <label for="item-quantity"><b>Qty:</b></label>
+                                    <input type="text" id="item-quantity" class="item-quantity" placeholder="1">
+                                    <input type="button" id="update-quantity" class="update-quantity">
+                                    <label for="update-quantity" class="update-btn">update</label>
+                                    <span>$&nbsp;205.00</span>
+                                </div>
+                            </div>
+                            <div class="btn-wrapper">
+                                <p class="cart-subtotal">cart subtotal:<span>205.00</span></p>
+                            </div>
+                            <div class="btn-wrapper">
+                                <div class="checkout-btns">
+                                    <input type="button" id="veiw-cart">
+                                    <label for="veiw-cart">view cart</label>
+                                    <input type="button" id="checkout">
+                                    <label for="checkout">checkout</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-nav">
+                <div class="wrapper">
+                    <div class="all-categories-menu">
+                        <div class="all-categories">
+                            <p>all categories
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
+                            </p>
+                            <ul class="all-categories-accordeon">
+                                <li><a href="#">Homepage Style 1</a></li>
+                                <li><a href="#">Homepage Style 2</a></li>
+                                <li><a href="#">Homepage Style 3</a></li>
+                                <li><a href="#">Homepage Style 4</a></li>
+                                <li><a href="#">Homepage Style 5</a></li>
+                                <li><a href="#">Homepage Style 6</a></li>
+                                <li><a href="#">Homepage Style 7</a></li>
+                                <li><a href="#">Homepage Style 8</a></li>
+                                <li><a href="#">Homepage Style 9</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="navbar">
+                        <div class="burger">
+                            <p>Menu</p>
+                            <span>&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span>&nbsp;</span>
+                        </div>
+                        <ul>
+                            <li class="arrow-anim"><a href="#">home<span>&nbsp;</span></a>
+                                <ul>
+                                    <li class="hidden-menu">
+                                        <div class="first-col">
+                                            <div class="col-justyfy">
+                                                <h3>layouts</h3>
+                                                <a href="#">Homepage Style 1</a>
+                                                <a href="#">Homepage Style 2</a>
+                                                <a href="#">Homepage Style 3</a>
+                                                <a href="#">Homepage Style 4</a>
+                                                <a href="#">Homepage Style 5</a>
+                                                <a href="#">Homepage Style 6</a>
+                                                <a href="#">Homepage Style 7</a>
+                                                <a href="#">Homepage Style 8</a>
+                                                <a href="#">Homepage Style 9</a>
+                                                <a href="#">Boxed Layout</a>
+                                                <a href="#">Right To LeftHOT</a>
+                                                <a href="#">LISTING LAYOUTS</a>
+                                                <a href="#">Without Sidebar</a>
+                                                <a href="#">Left Sidebar</a>
+                                                <a href="#">Right Sidebar</a>
+                                                <a href="#">Left - Right Sidebar</a>
+                                            </div>
+                                            <div class="col-justyfy">
+                                                <h3>listing layouts</h3>
+                                                <a href="#">Without Sidebar</a>
+                                                <a href="#">Left Sidebar</a>
+                                                <a href="#">Right Sidebar</a>
+                                                <a href="#">Left - Right Sidebar</a>
+                                            </div>
+                                        </div>
+                                        <div class="second-col">
+                                            <div class="col-justyfy">
+                                                <h3>detalil leayout</h3>
+                                                <a href="#">Product Detail - Full</a>
+                                                <a href="#">Product Detail - Left Sidebar</a>
+                                                <a href="#">Product Detail - Right Sidebar</a>
+                                                <a href="#">Thumb Horizontal</a>
+                                                <a href="#">Thumb Vertical</a>
+                                            </div>
+                                            <div class="col-justyfy">
+                                                <h3>tab types</h3>
+                                                <a href="#">Vertical</a>
+                                                <a href="#">Horizontal</a>
+                                                <a href="#">Accordion</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="index.html">deals</a></li>
+                            <li><a href="#">under $100</a></li>
+                            <li><a href="productKO.html">new arrivals</a></li>
+                            <li><a href="#">blog</a></li>
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+    <div class="wrapper wrapper-main-content product-page">
+        <div class="navigation">
+            <span>home</span>
+            <span>carbon fiber steering wheel</span>
+        </div>
+        <div class="main-block">
+            <div class="aside-block">
+                <div class="aside-navigation">
+                    <div class="aside-item-cart">
+                        <div class="aside-header">
+                            <p>shop by
+                            <a class="filter-btn white" id="filter-btn2"><i class="fas fa-times"></i></a>
+                            </p>
+                        </div>
+                        <div class="aside-item-list">
+                            <div class="aside-color-bar">
+                                <h3>color</h3>
+                                <ul class="choose-color">
+                                    <li><a href="#" style="background-color: #000000; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #945454; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #8F8F8F; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #53A828; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #EB6703; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #EF3DFF; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #FF0000; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #FFFFFF; width: 27px; height: 27px;"></a></li>
+                                    <li><a href="#" style="background-color: #FFD500; width: 27px; height: 27px;"></a></li>
+                                </ul>
+                            </div>
+                            <div class="aside-price-bar-scroll" id="options">
+                                <h3>price</h3>
+                                <div id="slider_price" class="slider_price"></div>
+                                    <form class="price-range" id="price-range" method='post'>
+                                        <label for='price'>
+                                            $
+                                            <input type="text" name="price" id="price" class="display-price" maxlength="10">
+                                        </label>
+                                        <label for='price2'>
+                                            - $
+                                            <input type="text" name="price" id="price2" class="display-price" maxlength="10">
+                                        </label>
+                                    </form>
+                            </div>
+                            <div class="aside-price-bar-category">
+                                <h3>price</h3>
+                                <ul class="choose-brand">
+                                    <li><a href="#">toyota&nbsp;(4)</a></li>
+                                    <li><a href="#">mercedes&nbsp;(4)</a></li>
+                                    <li><a href="#">kia&nbsp;(2)</a></li>
+                                    <li><a href="#">audi&nbsp;(4)</a></li>
+                                </ul>
+                            </div>
+                            <div class="aside-chose-model">
+                                <h3>model</h3>
+                                <ul>
+                                    <li><a href="#">camry</a></li>
+                                    <li><a href="#">fortuner</a></li>
+                                    <li><a href="#">vios</a></li>
+                                    <li><a href="#">c300</a></li>
+                                    <li><a href="#">e250</a></li>
+                                    <li><a href="#">s500</a></li>
+                                    <li><a href="#">sorento</a></li>
+                                    <li><a href="#">optima</a></li>
+                                    <li><a href="#">a4</a></li>
+                                    <li><a href="#">a8</a></li>
+                                </ul>
+                            </div>
+                            <div class="aside-year-category">
+                                <h3>year</h3>
+                                <ul>
+                                    <li><a href="#">2011</a></li>
+                                    <li><a href="#">2013</a></li>
+                                    <li><a href="#">2015</a></li>
+                                    <li><a href="#">2017</a></li>
+                                    <li><a href="#">2018</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aside-navigation">
+                    <div class="aside-item-cart" >
+                        <div class="aside-header">
+                            <span>compare products</span>
+                        </div>
+                        <div class="aside-item-list">
+                            <ul class="compare">
+                                <li><a href="#">radio transmitter adapter</a></li>
+                                <li><a href="#">radio transmitter adapter</a></li>
+                            </ul>
+                            <div class="comapre-result">
+                                <input class="submitCompare" type="submit" value="COMPARE" id="compare">
+                                <input class="resetCompare" type="reset" value="Clear all" id="clearAll">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aside-navigation">
+                    <div class="aside-banner">
+                        <img src="./ima/Aside.png" alt="banner" />
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="main-content-header">
+                    <div class="header-title">
+                        <h2>baby car seats</h2>
+                    </div>
+                    <div class="responsive-view">
+                        <div class="filters">
+                        <a class="filter-btn" id="filter-btn"><i class="fas fa-filter"></i></a>
+
+                            <div class="type-of-view">
+                                <input type="radio" name="tableView" id="View1" checked>
+                                <label for="View1" class="tableView"></label>
+                                <input type="radio" name="tableView" id="View2">
+                                <label for="View2" class="listView"></label>
+                                <p>Items 1-15 of 18</p>
+                            </div>
+                        </div>
+                        <div class="what-to-show col2">
+                            <div class="quantity-to-show">
+                                <span>Show&nbsp;&nbsp;</span>
+                                <label for="quantity">
+                                    <select name="quantity-of-items-to-show" id="quantity" class="quantity">
+                                        <option value="15">3</option>
+                                        <option value="15">9</option>
+                                        <option value="15">12</option>
+                                        <option value="15" selected>15</option>
+                                    </select>
+                                </label><span>ptr page</span>
+                            </div>
+                            <div class="sort-by-show">
+                                <span>Sort By&nbsp;&nbsp;</span>
+                                <label for="position">
+                                    <select name="quantity-of-items-to-show" id="position" class="position">
+                                        <option value="position" selected>position</option>
+                                        <option value="rating">rating</option>
+                                        <option value="reviews">reviews</option>
+                                    </select>&nbsp;
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper related-products">
+                    <div class="related-product-list-exended">
+                        <div class="related-product-list">
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                        <img class="related-product-img" src="ima/related/1.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="sale">sale</div>
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/2.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="for-sale">$55.00</span>&nbsp;&nbsp;<span class="base-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/3.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <img class="related-product-img" src="ima/related/1.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="sale">sale</div>
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/2.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="for-sale">$55.00</span>&nbsp;&nbsp;<span class="base-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/3.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <img class="related-product-img" src="ima/related/1.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="sale">sale</div>
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/2.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="for-sale">$55.00</span>&nbsp;&nbsp;<span class="base-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/3.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <img class="related-product-img" src="ima/related/1.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="sale">sale</div>
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/2.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="for-sale">$55.00</span>&nbsp;&nbsp;<span class="base-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="related-product-cart-extended">
+                                <div class="related-product-cart">
+                                    <div class="new">new</div>
+                                    <img class="related-product-img" src="ima/related/3.png" alt="" />
+                                    <div class="related-product-cart-btns">
+                                        <a class="wishlist" href="#">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="add-to-cart" href="#">add to cart</a>
+                                        <a class="compare" href="#">
+                                            <i class="fas fa-sync" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="product-title">Car Kit Hands Free Calling</a>
+                                        <img class="rating" src="ima/star5.png" alt="" />
+                                        <p><span class="full-price">$84.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="top-footer">
+            <div class="wrapper">
+                <ul>
+                    <li class="contact">
+                        <h3>contact us</h3>
+                        <ul>
+                            <li class="location">5611 Wellington Road, Suite 115, Gainesville, VA<br>20155
+                            </li>
+                            <li class="phone">888 9344 6000 - 888 1234 6789
+                            </li>
+                            <li class="mail">autostore@magentech.com</li>
+                            <li class="schedule">7 Days a week from 10-00 am to 6-00 pm</li>
+                        </ul>
+                    </li>
+                    <li class="locate">
+                        <h3>store location</h3>
+                        <ul>
+                            <li><a href="#">Los Angeles - USA</a></li>
+                            <li><a href="#">New York - USA</a></li>
+                            <li><a href="#">California - USA</a></li>
+                            <li><a href="#">Bangkok - Thailand</a></li>
+                            <li><a href="#">Paris - France</a></li>
+                            <li><a href="#">London - England</a></li>
+                        </ul>
+                    </li>
+                    <li class="custom-service">
+                        <h3>customer service</h3>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Shipping & Returns</a></li>
+                            <li><a href="#">Track Your Order</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Store Location</a></li>
+                            <li><a href="#">Customer Feedback</a></li>
+                        </ul>
+                    </li>
+                    <li class="info">
+                        <h3>information</h3>
+                        <ul>
+                            <li><a href="#">Caps & Hats</a></li>
+                            <li><a href="#">Hoodies & Sweatshirts</a></li>
+                            <li><a href="#">Jacket & Coats</a></li>
+                            <li><a href="#">Jumpers & Cardigans</a></li>
+                            <li><a href="#">Shoes, Boots & Trainers</a></li>
+                            <li><a href="#">Underwear & Socks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="wrapper bottom-wrap">
+                <ul>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                </ul>
+                <span>SM Autostore © 2019 Demo Store. All Rights Reserved. Designed by MagenTech.Com</span>
+            </div>
+        </div>
+    </footer>
+    <script src="js/jquery-slider-range.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body{
+    background: #eaeaea;
+}
+.radiotabs{
+    background: rgb(186, 240, 206);
+    padding: 20px;
+    border: solid 2px black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    float: left;
+}
+.tradios{
+    position: relative;
+}
+.tradio{
+    display: none;
+}
+.trnav{
+    display: flex;
+}
+.trnavitem{
+    background-color: rgb(98, 97, 131);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+.trnavitem:hover{
+     background-color: rgb(37, 146, 197);
+}
+#tab1:checked ~ .trnav #tnavitem1,
+#tab2:checked ~ .trnav #tnavitem2{
+    background-color: #8499c7;
+    cursor: default;
+    margin-top: -5px;
+    border-radius: 10px 10px 0 0;
+    transition: all 1s ease;
+}
+#tab1 ~ .trnav #tnavitem1{
+    margin-right: 5px;
+}
+#tab1:checked ~ .trnav #tnavitem1{
+    margin-right: 5px;
+}
+.trpanel{
+    background: #8499c7;
+    display: none;
+    padding: 15px;
+    border-radius: 0 10px 10px 10px;
+}
+#tab1:checked ~ .tpanels #tpanel1,
+#tab2:checked ~ .tpanels #tpanel2{
+    display: block;
+    transition: all .3s ease;
+}
+.trpanel input:hover:not([type="submit"]){
+    background-color: beige;
+}
+.trpanel input:focus:not([type="submit"]){
+    background-color: aquamarine;
+}
+.tcbox input[type="checkbox"] {
+    display: none;
+}
+.acordion{
+    width: 300px;
+    padding: 20px;
+    background-color: rgb(35, 10, 82);
+    border: solid 2px rgb(255, 0, 0);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    float: right;
+}
+.tcbox{
+    border: solid 1px white;
+    width: 300px;
+}
+.tcbox label{
+    background: rgb(35, 10, 82);
+    color: white;
+    padding: 10px;
+    display: block;
+}
+.tcbox>label:hover{
+    background: #8499c7;
+}
+.tcbox .section{
+    overflow: hidden;
+}
+#tcbox1 ~ .section,
+#tcbox2 ~ .section{
+    padding: 10px;
+    border: 1px solid rgb(230, 204, 90);
+    display: none;
+}
+#tcbox1:checked ~ .section,
+#tcbox2:checked ~ .section{
+    display: block;
+    background: #8499c7;
+}
+.section input{
+    margin-bottom: 5px;
+}
+.gallery{
+    position: relative;
+    height: 500px;
+    width: 650px;
+    margin: 0 auto;
+    background: 
+        url("../ima/1.png") no-repeat 0 0, url("../ima/2.png") no-repeat 50% 0, url("../ima/3.png") no-repeat 100% 0,  
+        url("../ima/4.png") no-repeat left 50%,  url("../ima/5.png") no-repeat center 50%,  url("../ima/6.png") no-repeat right 50%,  
+        url("../ima/1.png") no-repeat bottom left,  url("../ima/2.png") no-repeat center bottom,  url("../ima/3.png") no-repeat bottom right;
+    border: solid 1px black;
+    box-shadow: -15px 15px 10px rgba(0,0,0,0.5);
+}
+input[type="submit"]:hover{
+    background: #49c459;
+}
